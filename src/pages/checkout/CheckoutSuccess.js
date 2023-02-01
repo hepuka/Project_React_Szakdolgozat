@@ -5,12 +5,12 @@ const CheckoutSuccess = () => {
   return (
     <section>
       <div className="container">
-        <h2>Checkout Successful</h2>
-        <p>Thank you for your purchase</p>
+        <h2>Sikeres fizetés</h2>
+
         <br />
 
         <button className="--btn --btn-primary">
-          <Link to="/order-history">View Order Status</Link>
+          <Link to="/welcome">Vissza a főoldalra</Link>
         </button>
       </div>
     </section>

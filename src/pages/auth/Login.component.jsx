@@ -70,7 +70,7 @@ const Login = () => {
               />
               <input
                 type="password"
-                placeholder="Password"
+                placeholder="Jelszó"
                 required
                 value={passwordInput}
                 onChange={(e) => setPasswordInput(e.target.value)}

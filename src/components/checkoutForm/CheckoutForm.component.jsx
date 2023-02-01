@@ -117,7 +117,7 @@ const CheckoutForm = () => {
   return (
     <section>
       <div className={`container ${styles.checkout}`}>
-        <h2>Checkout</h2>
+        <h2>Számla rendezése</h2>
         <form onSubmit={handleSubmit}>
           <div>
             <Card cardClass={styles.card}>
@@ -126,7 +126,7 @@ const CheckoutForm = () => {
           </div>
           <div>
             <Card cardClass={`${styles.card} ${styles.pay}`}>
-              <h3>Stripe Checkout</h3>
+              <h3>Vásárló adatai</h3>
               <PaymentElement id={styles["payment-element"]} />
               <button
                 disabled={isLoading || !stripe || !elements}

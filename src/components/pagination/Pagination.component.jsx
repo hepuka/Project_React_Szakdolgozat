@@ -51,7 +51,7 @@ const Pagination = ({
         onClick={paginatePrev}
         className={currentPage === pageNumbers[0] ? `${styles.hidden}` : null}
       >
-        Prev
+        Előző
       </li>
 
       {pageNumbers.map((number) => {
@@ -76,11 +76,11 @@ const Pagination = ({
             : null
         }
       >
-        Next
+        Következő
       </li>
 
       <p>
-        <b className={styles.page}>{`page ${currentPage}`}</b>
+        <b className={styles.page}>{`oldal ${currentPage}`}</b>
         <span>{` of `}</span>
         <b>{`${Math.ceil(totalPages)}`}</b>
       </p>

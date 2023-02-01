@@ -36,15 +36,15 @@ const CheckoutDetails = () => {
   return (
     <section>
       <div className={`container ${styles.checkout}`}>
-        <h2>Checkout Details</h2>
+        <h2>Fizetés részletei</h2>
         <form onSubmit={handleSubmit}>
           <div>
             <Card cardClass={styles.card}>
-              <h3>Shipping Address</h3>
-              <label>Recipient Email</label>
+              <h3>Felszolgáló azonosítása</h3>
+              <label>Regisztrált email cím</label>
               <input
                 type="text"
-                placeholder="Recipient Email"
+                placeholder="Felszolgáló email"
                 required
                 name="email"
                 value={shippingAddress.email}
@@ -54,7 +54,7 @@ const CheckoutDetails = () => {
 
             <Card cardClass={styles.card}>
               <button type="submit" className="--btn --btn-primary">
-                Proceed To Checkout
+                Tovább a fizetéshez
               </button>
             </Card>
           </div>

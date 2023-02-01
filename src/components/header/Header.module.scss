@@ -46,7 +46,7 @@ header {
         a {
           color: #fff;
           &:hover {
-            color: yellow;
+            color: red;
           }
         }
       }
@@ -61,7 +61,7 @@ header {
       color: #fff;
       position: relative;
       &:hover {
-        color: yellow;
+        color: red;
       }
       &.active {
         color: var(--color-danger);
@@ -86,7 +86,7 @@ header {
       margin: 0 5px;
       color: #fff;
       &:hover {
-        color: yellow;
+        color: red;
       }
       &.active {
         color: var(--color-danger);

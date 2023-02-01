@@ -16,7 +16,7 @@
 
   --color-primary: #007bff;
   --color-success: #28a745;
-  --color-danger: red;
+  --color-danger: ##fff;
 }
 
 * {
@@ -178,7 +178,7 @@ p {
   color: #5c5e4c;
 }
 .--color-danger {
-  color: red;
+  color: #5c5e4c;
 }
 .--color-success {
   color: #28a745;
@@ -242,6 +242,10 @@ p {
   margin: 2rem 0;
 }
 
+.--my5 {
+  margin: 5rem 0;
+}
+
 .--mx2 {
   margin: 0 2rem;
 }
@@ -303,7 +307,7 @@ p {
 }
 .--btn-danger {
   color: #fff;
-  background: red;
+  background: #5c5e4c;
 }
 
 .--btn-success {
@@ -416,12 +420,12 @@ p {
 
 a {
   font-size: 1.4rem;
-  color: var(--dark-blue);
+  color: var(--color-white);
   text-decoration: none;
   transition: all 0.2s;
 }
 
 a:hover {
-  color: var(--color-dark);
+  color: var(--color-white);
   font-size: 1.5rem;
 }

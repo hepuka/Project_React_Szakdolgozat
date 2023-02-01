@@ -47,7 +47,7 @@ const ChangeOrderStatus = ({ order, id }) => {
 
       <div className={styles.status}>
         <Card cardClass={styles.card}>
-          <h4>Update Status</h4>
+          <h4>Rendelés állapotának módosítása</h4>
           <form onSubmit={(e) => editOrder(e, id)}>
             <span>
               <select
@@ -55,7 +55,7 @@ const ChangeOrderStatus = ({ order, id }) => {
                 onChange={(e) => setStatus(e.target.value)}
               >
                 <option value="" disabled>
-                  -- Choose one --
+                  -- válassz státuszt --
                 </option>
                 <option value="Megrendelés leadva...">
                   Megrendelés leadva...
@@ -66,7 +66,7 @@ const ChangeOrderStatus = ({ order, id }) => {
             </span>
             <span>
               <button type="submit" className="--btn --btn-primary">
-                Update Status
+                Módosít
               </button>
             </span>
           </form>

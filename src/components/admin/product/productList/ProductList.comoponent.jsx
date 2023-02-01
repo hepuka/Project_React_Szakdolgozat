@@ -44,10 +44,14 @@ const ProductList = ({ products }) => {
     <div className={styles["product-list"]} id="kunpaosproducts">
       <div className={styles.top}>
         <div className={styles.icons}>
-          <BsFillGridFill size={22} color="red" onClick={() => setGrid(true)} />
+          <BsFillGridFill
+            size={22}
+            color="#5c5e4c"
+            onClick={() => setGrid(true)}
+          />
           <FaListAlt size={22} color="#0066d4" onClick={() => setGrid(false)} />
           <p>
-            <b>{filteredProducts.length}</b> termék a listában
+            <b>{filteredProducts.length}</b> termék a kínálatban
           </p>
         </div>
         {/* Search icon */}

@@ -65,7 +65,7 @@ const Register = () => {
       <section className={`container ${styles.auth}`}>
         <Card>
           <div className={styles.form}>
-            <h2>Register</h2>
+            <h2>Új felhasználó regisztrálása</h2>
             <form onSubmit={registerUser}>
               <input
                 type="text"
@@ -76,20 +76,20 @@ const Register = () => {
               />
               <input
                 type="password"
-                placeholder="Password"
+                placeholder="Jelszó"
                 required
                 value={passwordInput}
                 onChange={(e) => setPasswordInput(e.target.value)}
               />
               <input
                 type="password"
-                placeholder="Confirm Password"
+                placeholder="Adja meg újra jelszavát"
                 required
                 value={passwordConfirm}
                 onChange={(e) => setPasswordConfirm(e.target.value)}
               />
               <button type="submit" className="--btn --btn-primary --btn-block">
-                Register
+                Regisztráció
               </button>
             </form>
           </div>
