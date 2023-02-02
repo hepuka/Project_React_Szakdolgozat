@@ -34,6 +34,11 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
+            <NavLink to="/admin/add-user/ADD" className={activeLink}>
+              Új felhasználó hozzáadása
+            </NavLink>
+          </li>
+          <li>
             <NavLink to="/admin/orders" className={activeLink}>
               Megrendelések
             </NavLink>

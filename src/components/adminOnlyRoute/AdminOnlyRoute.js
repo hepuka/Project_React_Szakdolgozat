@@ -12,11 +12,11 @@ const AdminOnlyRoute = ({ children }) => {
   return (
     <section style={{ height: "80vh" }}>
       <div className="container">
-        <h2>Permission Denied!</h2>
-        <p>This page can only be view by an Admin user!</p>
+        <h2>Belépés megtagadva!</h2>
+        <p>Ez az oldal csak admin jogosultsággal tekinthető meg!</p>
         <br />
-        <Link to="/">
-          <button className="--btn">&larr; Back to Home</button>
+        <Link to="/welcome">
+          <button className="--btn">&larr; Vissza a főoldalra</button>
         </Link>
       </div>
     </section>
@@ -27,6 +27,16 @@ export const AdminOnlyLink = ({ children }) => {
   const userEmail = useSelector(selectEmail);
 
   if (userEmail === "kunzoltan7707@gmail.com") {
+    return children;
+  }
+
+  return null;
+};
+
+export const UserOnlyLink = ({ children }) => {
+  const userEmail = useSelector(selectEmail);
+
+  if (userEmail !== "kunzoltan7707@gmail.com") {
     return children;
   }
 

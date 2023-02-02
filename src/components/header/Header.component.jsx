@@ -12,7 +12,7 @@
 import React, { useState } from "react";
 import styles from "./Header.module.scss";
 import { Link, NavLink } from "react-router-dom";
-import { FaTimes, FaUserCircle } from "react-icons/fa";
+import { FaTimes } from "react-icons/fa";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
@@ -22,7 +22,7 @@ import {
   SET_ACTIVE_USER,
 } from "../../redux/slice/authSlice";
 import ShowOnLogin from "../hiddenLink/hiddenLink";
-import { AdminOnlyLink } from "../adminOnlyRoute/AdminOnlyRoute";
+import { AdminOnlyLink, UserOnlyLink } from "../adminOnlyRoute/AdminOnlyRoute";
 
 import {
   CALCULATE_TOTAL_QUANTITY,
@@ -37,7 +37,7 @@ import { toast } from "react-toastify";
 const Logo = () => {
   return (
     <div className={styles.logo}>
-      <Link to="/">
+      <Link to="/welcome">
         <h2>kunpao's Coffe.</h2>
       </Link>
     </div>
@@ -118,6 +118,17 @@ const Header = () => {
     );
   };
 
+  const Cart2 = () => {
+    return (
+      <span className={styles.cart}>
+        <Link to="/cart2">
+          2. asztal
+          <p>{cartTotalQuantity}</p>
+        </Link>
+      </span>
+    );
+  };
+
   return (
     <header className={scrollPage ? `${styles.fixed}` : null}>
       <div className={styles.header}>
@@ -162,29 +173,26 @@ const Header = () => {
             </li>
 
             <li>
-              <ShowOnLogin>
-                <NavLink to="/menu" className={activeLink}>
-                  Menü
-                </NavLink>
-              </ShowOnLogin>
+              <UserOnlyLink>
+                <ShowOnLogin>
+                  <NavLink to="/menu" className={activeLink}>
+                    Menü
+                  </NavLink>
+                </ShowOnLogin>
+              </UserOnlyLink>
             </li>
           </ul>
 
           <div className={styles["header-right"]} onClick={hideMenu}>
             <span className={styles.links}>
-              {/*               <NavLink to="/login" className={activeLink}>
-                Login
-              </NavLink> */}
-              <AdminOnlyLink>
-                {/*                 <NavLink to="/register" className={activeLink}>
-                  Register
-                </NavLink> */}
-              </AdminOnlyLink>
-
+              <UserOnlyLink>
+                <ShowOnLogin>
+                  <NavLink to="/order-history" className={activeLink}>
+                    Rendelések
+                  </NavLink>
+                </ShowOnLogin>
+              </UserOnlyLink>
               <ShowOnLogin>
-                <NavLink to="/order-history" className={activeLink}>
-                  Rendelések
-                </NavLink>
                 <NavLink to="/contact" className={activeLink}>
                   Kapcsolat
                 </NavLink>
@@ -196,9 +204,16 @@ const Header = () => {
                 </a>
               </ShowOnLogin>
             </span>
-            <ShowOnLogin>
-              <Cart />
-            </ShowOnLogin>
+            <UserOnlyLink>
+              <ShowOnLogin>
+                <Cart />
+              </ShowOnLogin>
+            </UserOnlyLink>
+            <UserOnlyLink>
+              <ShowOnLogin>
+                <Cart2 />
+              </ShowOnLogin>
+            </UserOnlyLink>
           </div>
         </nav>
 

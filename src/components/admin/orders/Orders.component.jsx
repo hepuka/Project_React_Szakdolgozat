@@ -28,9 +28,9 @@ const Orders = () => {
   return (
     <>
       <div className={styles.order}>
-        <h2>Your Order History</h2>
+        <h2>Összes rendelés</h2>
         <p>
-          Open an order to <b>Change order status</b>
+          Válassz egy rendelést a részleteinek <b>megtekintésére</b>
         </p>
         <br />
         <>
@@ -42,11 +42,11 @@ const Orders = () => {
               <table>
                 <thead>
                   <tr>
-                    <th>s/n</th>
-                    <th>Date</th>
-                    <th>Order ID</th>
-                    <th>Order Amount</th>
-                    <th>Order Status</th>
+                    <th>Sorszám</th>
+                    <th>Rendelés dátuma</th>
+                    <th>Rendelés azonosítója</th>
+                    <th>Rendelés összege</th>
+                    <th>Rendelés állapota</th>
                   </tr>
                 </thead>
                 <tbody>

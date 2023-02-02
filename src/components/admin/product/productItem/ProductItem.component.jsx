@@ -35,13 +35,13 @@ const ProductItem = ({
     dispatch(CALCULATE_TOTAL_QUANTITY());
   };
 
+  const addtoCart2 = () => {};
+
   return (
     <Card cardClass={grid ? `${styles.grid}` : `${styles.list}`}>
-      <Link to={`/product-details/${id}`}>
-        <div className={styles.img}>
-          <img src={imageURL} alt={name} />
-        </div>
-      </Link>
+      <div className={styles.img}>
+        <img src={imageURL} alt={name} />
+      </div>
 
       <div className={styles.content}>
         <div className={styles.details}>
@@ -52,12 +52,24 @@ const ProductItem = ({
 
         {!grid && <p className={styles.desc}>{shortenText(desc, 200)}</p>}
 
-        <button
-          className="--btn --btn-danger"
-          onClick={() => addtoCart(product)}
-        >
-          1.asztal
-        </button>
+        <div className="--flex-around">
+          <div>
+            <button
+              className="--btn --btn-danger"
+              onClick={() => addtoCart(product)}
+            >
+              1.asztal
+            </button>
+          </div>
+          <div>
+            <button
+              className="--btn --btn-danger"
+              onClick={() => addtoCart2(product)}
+            >
+              2.asztal
+            </button>
+          </div>
+        </div>
       </div>
     </Card>
   );

@@ -29,6 +29,7 @@ import Orders from "./components/admin/orders/Orders.component";
 import NotFound from "./pages/notFound/NotFound";
 import Welcome from "./pages/wecome/Welcome";
 import Menu from "./pages/menu/Menu";
+import Cart2 from "./pages/cart/Cart2";
 
 function App() {
   return (
@@ -60,6 +61,7 @@ function App() {
             element={<ProductDetails />}
           ></Route>
           <Route path="/cart" element={<Cart />}></Route>
+          <Route path="/cart2" element={<Cart2 />}></Route>
           <Route path="/checkout-details" element={<CheckoutDetails />}></Route>
           <Route path="/checkout" element={<Checkout />}></Route>
           <Route path="/checkout-success" element={<CheckoutSuccess />}></Route>

@@ -3,7 +3,6 @@ import useFetchDocument from "../../../customHooks/useFetchDocument";
 import styles from "./OrderDetails.module.scss";
 import spinnerImg from "../../../assets/spinner.jpg";
 import { Link, useParams } from "react-router-dom";
-import ChangeOrderStatus from "../changeOrderStatus/ChangeOrderStatus.component";
 
 const OrderDetails = () => {
   const [order, setOrder] = useState(null);
@@ -17,7 +16,7 @@ const OrderDetails = () => {
   return (
     <>
       <div className={styles.table}>
-        <h2>Order Details</h2>
+        <h2>Rendelés részletei</h2>
         <div>
           <Link to="/admin/orders">&larr; Back To Orders</Link>
         </div>
@@ -27,33 +26,26 @@ const OrderDetails = () => {
         ) : (
           <>
             <p>
-              <b>Order ID</b> {order.id}
+              <b>Rendelés azonosító: </b> {order.id}
             </p>
             <p>
-              <b>Order Amount</b> ${order.orderAmount}
+              <b>Rendelés összege: </b> {`${order.orderAmount} Ft`}
             </p>
             <p>
-              <b>Order Status</b> {order.orderStatus}
+              <b>Rendelés állapota: </b> {order.orderStatus}
             </p>
             <p>
-              <b>Shipping Address</b>
-              <br />
-              Address: {order.shippingAddress.line1},
-              {order.shippingAddress.city}
-              <br />
-              State: {order.shippingAddress.state}
-              <br />
-              Country: {order.shippingAddress.country}
+              <b>Felszolgáló:</b> {order.shippingAddress.email}
             </p>
             <br />
             <table>
               <thead>
                 <tr>
-                  <th>s/n</th>
-                  <th>Product</th>
-                  <th>Price</th>
-                  <th>Quantity</th>
-                  <th>Total</th>
+                  <th>Sorszám</th>
+                  <th>Termék neve</th>
+                  <th>Egységár</th>
+                  <th>Mennyiség</th>
+                  <th>Végösszeg</th>
                 </tr>
               </thead>
               <tbody>
@@ -74,9 +66,9 @@ const OrderDetails = () => {
                           style={{ width: "100px" }}
                         />
                       </td>
-                      <td>{price}</td>
+                      <td>{`${price} Ft`}</td>
                       <td>{cartQuantity}</td>
-                      <td>{(price * cartQuantity).toFixed(2)}</td>
+                      <td>{`${(price * cartQuantity).toFixed(2)} Ft`}</td>
                     </tr>
                   );
                 })}
@@ -84,7 +76,6 @@ const OrderDetails = () => {
             </table>
           </>
         )}
-        <ChangeOrderStatus order={order} id={id} />
       </div>
     </>
   );
