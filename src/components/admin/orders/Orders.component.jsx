@@ -67,10 +67,7 @@ const Orders = () => {
                           {orderDate} at {orderTime}
                         </td>
                         <td>{id}</td>
-                        <td>
-                          {"$"}
-                          {orderAmount}
-                        </td>
+                        <td>{orderAmount} Ft</td>
                         <td>{userName}</td>
 
                         <td>
