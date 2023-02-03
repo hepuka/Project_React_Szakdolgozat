@@ -10,7 +10,11 @@ import CheckoutSummary from "../checkoutSummary/CheckoutSummary.component";
 import spinnerImg from "../../assets/spinner.jpg";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
-import { selectEmail, selectUserID } from "../../redux/slice/authSlice";
+import {
+  selectEmail,
+  selectUserID,
+  selectUserName,
+} from "../../redux/slice/authSlice";
 import {
   CLEAR_CART,
   selectCartItems,
@@ -32,6 +36,7 @@ const CheckoutForm = () => {
 
   const userID = useSelector(selectUserID);
   const userEmail = useSelector(selectEmail);
+  const userName = useSelector(selectUserName);
   const cartItems = useSelector(selectCartItems);
   const cartTotalAmount = useSelector(selectCartTotalAmount);
   const shippingAddress = useSelector(selectShippingAddress);
@@ -58,6 +63,7 @@ const CheckoutForm = () => {
     const orderConfig = {
       userID,
       userEmail,
+      userName,
       orderDate: date,
       orderTime: time,
       orderAmount: cartTotalAmount,

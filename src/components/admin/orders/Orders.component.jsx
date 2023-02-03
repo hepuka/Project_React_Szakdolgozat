@@ -46,6 +46,7 @@ const Orders = () => {
                     <th>Rendelés dátuma</th>
                     <th>Rendelés azonosítója</th>
                     <th>Rendelés összege</th>
+                    <th>Felszolgáló neve</th>
                     <th>Rendelés állapota</th>
                   </tr>
                 </thead>
@@ -56,6 +57,7 @@ const Orders = () => {
                       orderDate,
                       orderTime,
                       orderAmount,
+                      userName,
                       orderStatus,
                     } = order;
                     return (
@@ -69,6 +71,8 @@ const Orders = () => {
                           {"$"}
                           {orderAmount}
                         </td>
+                        <td>{userName}</td>
+
                         <td>
                           <p
                             className={
