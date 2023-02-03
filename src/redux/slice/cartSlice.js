@@ -5,6 +5,11 @@ const initialState = {
   cartItems: localStorage.getItem("cartItems")
     ? JSON.parse(localStorage.getItem("cartItems"))
     : [],
+
+  cartItems2: localStorage.getItem("cartItems2")
+    ? JSON.parse(localStorage.getItem("cartItems2"))
+    : [],
+
   cartTotalQuantity: 0,
   cartTotalAmount: 0,
   previousURL: "",
@@ -38,6 +43,32 @@ const cartSlice = createSlice({
       }
       // save cart to Localstorage
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+    },
+
+    ADD_TO_CART2(state, action) {
+      //   console.log(action.payload);
+      const productIndex = state.cartItems2.findIndex(
+        (item) => item.id === action.payload.id
+      );
+
+      if (productIndex >= 0) {
+        // Item already exists in the cart
+        // Increase the cartQuantity
+        state.cartItems2[productIndex].cartQuantity += 1;
+        toast.info(`${action.payload.name} hozzáaadva`, {
+          position: "center",
+        });
+      } else {
+        // Item doesn't exists in the cart
+        // Add item to the cart
+        const tempProduct = { ...action.payload, cartQuantity: 1 };
+        state.cartItems2.push(tempProduct);
+        toast.success(`${action.payload.name} rendeléshez adva`, {
+          position: "center",
+        });
+      }
+      // save cart to Localstorage
+      localStorage.setItem("cartItems2", JSON.stringify(state.cartItems2));
     },
 
     DECREASE_CART(state, action) {
@@ -120,6 +151,7 @@ const cartSlice = createSlice({
 
 export const {
   ADD_TO_CART,
+  ADD_TO_CART2,
   DECREASE_CART,
   REMOVE_FROM_CART,
   CLEAR_CART,
@@ -129,6 +161,7 @@ export const {
 } = cartSlice.actions;
 
 export const selectCartItems = (state) => state.cart.cartItems;
+export const selectCartItems2 = (state) => state.cart.cartItems2;
 export const selectCartTotalQuantity = (state) => state.cart.cartTotalQuantity;
 export const selectCartTotalAmount = (state) => state.cart.cartTotalAmount;
 export const selectPreviousURL = (state) => state.cart.previousURL;

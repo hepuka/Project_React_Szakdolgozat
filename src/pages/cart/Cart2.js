@@ -1,13 +1,29 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./Cart.module.scss";
+import { ADD_TO_CART2, selectCartItems2 } from "../../redux/slice/cartSlice";
+import { FaTrashAlt } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
+import Card from "../../components/card/Card.component";
+import { selectIsLoggedIn } from "../../redux/slice/authSlice";
 
 const Cart2 = () => {
+  const cartItems2 = useSelector(selectCartItems2);
+
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const increaseCart = (cart) => {
+    dispatch(ADD_TO_CART2(cart));
+  };
+
   return (
     <section>
-      {/*  <div className={`container ${styles.table}`}>
-        <h2>1.asztal megrendelés összesítő</h2>
-        {cartItems.length === 0 ? (
+      <div className={`container ${styles.table}`}>
+        <h2>2.asztal megrendelés összesítő</h2>
+        {cartItems2.length === 0 ? (
           <>
             <p>Nincs rendelés leadva</p>
             <br />
@@ -29,7 +45,7 @@ const Cart2 = () => {
                 </tr>
               </thead>
               <tbody>
-                {cartItems.map((cart, index) => {
+                {cartItems2.map((cart, index) => {
                   const { id, name, price, imageURL, cartQuantity } = cart;
                   return (
                     <tr key={id}>
@@ -49,7 +65,7 @@ const Cart2 = () => {
                         <div className={styles.count}>
                           <button
                             className="--btn"
-                            onClick={() => decreaseCart(cart)}
+                            // onClick={() => decreaseCart(cart)}
                           >
                             -
                           </button>
@@ -58,7 +74,7 @@ const Cart2 = () => {
                           </p>
                           <button
                             className="--btn"
-                            onClick={() => increaseCart(cart)}
+                            // onClick={() => increaseCart(cart)}
                           >
                             +
                           </button>
@@ -69,7 +85,7 @@ const Cart2 = () => {
                         <FaTrashAlt
                           size={19}
                           color="red"
-                          onClick={() => removeFromCart(cart)}
+                          // onClick={() => removeFromCart(cart)}
                         />
                       </td>
                     </tr>
@@ -78,7 +94,7 @@ const Cart2 = () => {
               </tbody>
             </table>
             <div className={styles.summary}>
-              <button className="--btn --btn-danger" onClick={clearCart}>
+              <button className="--btn --btn-danger" /* onClick={clearCart */>
                 Rendelések törlése
               </button>
               <div className={styles.checkout}>
@@ -88,16 +104,16 @@ const Cart2 = () => {
                 <br />
                 <Card cardClass={styles.card}>
                   <p>
-                    <b> {`Tételek száma: ${cartTotalQuantity}`}</b>
+                    <b> {`Tételek száma:`}</b>
                   </p>
                   <div className={styles.text}>
                     <h4>Összeg:</h4>
-                    <h3>{`${cartTotalAmount.toFixed(2)} Ft`}</h3>
+                    <h3>{`Ft`}</h3>
                   </div>
                   <p>Az összeg 25% ÁFA-t tartalmaz</p>
                   <button
                     className="--btn --btn-primary --btn-block"
-                    onClick={checkout}
+                    // onClick={checkout}
                   >
                     Fizetés leadása
                   </button>
@@ -106,7 +122,7 @@ const Cart2 = () => {
             </div>
           </>
         )}
-      </div> */}
+      </div>
     </section>
   );
 };
