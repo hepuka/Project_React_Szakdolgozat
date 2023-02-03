@@ -22,7 +22,7 @@ const Contact = () => {
       )
       .then(
         (result) => {
-          toast.success("Message sent successfully");
+          toast.success("Üzenet elküldve!");
         },
         (error) => {
           toast.error(error.text);

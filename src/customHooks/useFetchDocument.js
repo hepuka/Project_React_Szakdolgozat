@@ -18,7 +18,7 @@ const useFetchDocument = (collectionName, documentID) => {
       };
       setDocument(obj);
     } else {
-      toast.error("Document not found");
+      toast.error("Nem található dokumentum!");
     }
   };
 

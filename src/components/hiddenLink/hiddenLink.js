@@ -4,7 +4,6 @@
 
 import { useSelector } from "react-redux";
 import { selectIsLoggedIn } from "../../redux/slice/authSlice";
-import Header from "../header/Header.component";
 
 const ShowOnLogin = ({ children }) => {
   const isLoggedIn = useSelector(selectIsLoggedIn);

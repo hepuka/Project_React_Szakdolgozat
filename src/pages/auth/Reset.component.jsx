@@ -23,7 +23,7 @@ const Reset = () => {
     sendPasswordResetEmail(auth, emailInput)
       .then(() => {
         setIsLoading(false);
-        toast.success("Check your email for a reset link!");
+        toast.success("Ellenőrizd email fiókodat a további teendőkért!");
       })
       .catch((error) => {
         setIsLoading(false);
@@ -41,7 +41,7 @@ const Reset = () => {
 
         <Card>
           <div className={styles.form}>
-            <h2>Reset Password</h2>
+            <h2>Elfelejtett jelszó</h2>
 
             <form onSubmit={resetPassword}>
               <input
@@ -52,14 +52,11 @@ const Reset = () => {
                 onChange={(e) => setEmailInput(e.target.value)}
               />
               <button type="submit" className="--btn --btn-primary --btn-block">
-                Reset Password
+                Elküld
               </button>
               <div className={styles.links}>
                 <p>
-                  <Link to="/login">- Login -</Link>
-                </p>
-                <p>
-                  <Link to="/register">- Register -</Link>
+                  <Link to="/login">- Vissza -</Link>
                 </p>
               </div>
             </form>

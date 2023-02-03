@@ -40,7 +40,7 @@ const Login = () => {
       .then((userCredential) => {
         //const user = userCredential.user;
         setIsLoading(false);
-        toast.success("Login Successfull!");
+        toast.success("Sikeres bejelentkezés!");
         redirectUser();
       })
       .catch((error) => {

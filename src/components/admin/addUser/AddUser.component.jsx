@@ -66,7 +66,7 @@ const AddUser = () => {
       setIsLoading(false);
       setUser({ ...initialSate });
 
-      toast.success("User uploaded successfully!");
+      toast.success("Sikeres felhasználó rögzítés!");
       navigate("/admin/users");
     } catch (error) {
       setIsLoading(false);
@@ -90,7 +90,7 @@ const AddUser = () => {
       });
 
       setIsLoading(false);
-      toast.success("User edited successfully!");
+      toast.success("Felhasználó adatai módosítva!");
       navigate("/admin/users");
     } catch (error) {
       setIsLoading(false);

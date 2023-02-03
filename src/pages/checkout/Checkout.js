@@ -61,7 +61,7 @@ const Checkout = () => {
       })
       .catch((error) => {
         setMessage("Failed to initialize checkout");
-        toast.error("Something went wrong!!!");
+        toast.error("Hiba történt!");
       });
   }, []);
 

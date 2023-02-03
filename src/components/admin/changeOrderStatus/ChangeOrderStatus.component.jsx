@@ -33,7 +33,7 @@ const ChangeOrderStatus = ({ order, id }) => {
       setDoc(doc(db, "kunpaosorders", id), orderConfig);
 
       setIsLoading(false);
-      toast.success("Order status changes successfully");
+      toast.success("Megrendelés állapota módosítva!");
       navigate("/order-history");
     } catch (error) {
       setIsLoading(false);

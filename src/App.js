@@ -24,7 +24,6 @@ import Checkout from "./pages/checkout/Checkout";
 import CheckoutSuccess from "./pages/checkout/CheckoutSuccess";
 import OrderHistory from "./pages/orderHistory/OrderHistory";
 import OrderDetails from "./pages/orderDetails/OrderDetails";
-import ReviewProducts from "./components/reviewProducts/ReviewProducts.component";
 import Orders from "./components/admin/orders/Orders.component";
 import NotFound from "./pages/notFound/NotFound";
 import Welcome from "./pages/wecome/Welcome";
@@ -69,10 +68,6 @@ function App() {
           <Route path="/order-details/:id" element={<OrderDetails />}></Route>
           <Route path="/orders" element={<Orders />}></Route>
           <Route path="*" element={<NotFound />}></Route>
-          <Route
-            path="/review-product/:id"
-            element={<ReviewProducts />}
-          ></Route>
         </Routes>
         <Footer />
       </BrowserRouter>

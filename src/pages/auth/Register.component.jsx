@@ -41,7 +41,7 @@ const Register = () => {
     e.preventDefault();
 
     if (passwordInput !== passwordConfirm) {
-      toast.error("Password do not match!");
+      toast.error("Hibás bejelentkezési adat!");
     }
     setIsLoading(true);
 
@@ -51,7 +51,7 @@ const Register = () => {
         console.log(user);
 
         setIsLoading(false);
-        toast.success("Registration Successful...");
+        toast.success("Sikeres regisztráció!");
         navigate("/login");
       })
       .catch((error) => {

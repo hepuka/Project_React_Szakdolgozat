@@ -77,7 +77,7 @@ const AddProduct = () => {
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           setProduct({ ...product, imageURL: downloadURL });
-          toast.success("Image uploaded successfully!");
+          toast.success("Sikeres képfeltöltés!");
         });
       }
     );
@@ -102,7 +102,7 @@ const AddProduct = () => {
       setUploadProgress(0);
       setProduct({ ...initialSate });
 
-      toast.success("Product uploaded successfully!");
+      toast.success("Sikeres termék feltöltés!");
       navigate("/admin/all-products");
     } catch (error) {
       setIsLoading(false);
@@ -132,7 +132,7 @@ const AddProduct = () => {
       });
 
       setIsLoading(false);
-      toast.success("Product edited successfully!");
+      toast.success("Termék adatai módosítva!");
       navigate("/admin/all-products");
     } catch (error) {
       setIsLoading(false);

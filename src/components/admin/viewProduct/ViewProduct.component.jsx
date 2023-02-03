@@ -85,7 +85,7 @@ const ViewProduct = () => {
       const storageRef = ref(storage, imageURL);
       await deleteObject(storageRef);
 
-      toast.success("Product deleted successfully!");
+      toast.success("Sikeres terméktörlés!");
     } catch (error) {
       toast.error(error.message);
     }

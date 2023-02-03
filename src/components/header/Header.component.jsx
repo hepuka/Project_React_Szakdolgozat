@@ -66,7 +66,7 @@ const Header = () => {
   const logoutUser = () => {
     signOut(auth)
       .then(() => {
-        toast.success("Logout successfully!");
+        toast.success("Sikeres kijelentkezés!");
         navigate("/");
       })
       .catch((error) => {
