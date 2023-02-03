@@ -9,6 +9,7 @@ import AddProduct from "../../components/admin/addProducts/AddProduct.component"
 import Orders from "../../components/admin/orders/Orders.component";
 import OrderDertails from "../../components/admin/orderDetails/OrderDetails.component";
 import AddUser from "../../components/admin/addUser/AddUser.component";
+import Users from "../../components/admin/users/Users.component";
 const Admin = () => {
   return (
     <div className={styles.admin}>
@@ -23,6 +24,7 @@ const Admin = () => {
           <Route path="/add-product/:id" element={<AddProduct />}></Route>
           <Route path="/add-user/:id" element={<AddUser />}></Route>
           <Route path="/orders" element={<Orders />}></Route>
+          <Route path="/users" element={<Users />}></Route>
           <Route path="/order-details/:id" element={<OrderDertails />}></Route>
         </Routes>
       </div>

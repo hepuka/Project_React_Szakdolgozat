@@ -23,9 +23,10 @@ import registerImg from "../../assets/register.png";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/config";
 import { toast } from "react-toastify";
+
 //compomemts
 import Card from "../../components/card/Card.component";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Loader from "../../components/loader/Loader.component";
 
 const Register = () => {
@@ -88,6 +89,7 @@ const Register = () => {
                 value={passwordConfirm}
                 onChange={(e) => setPasswordConfirm(e.target.value)}
               />
+
               <button type="submit" className="--btn --btn-primary --btn-block">
                 Regisztráció
               </button>
