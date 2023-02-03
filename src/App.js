@@ -20,7 +20,9 @@ import AdminOnlyRoute from "./components/adminOnlyRoute/AdminOnlyRoute";
 import ProductDetails from "./components/admin/product/productDetails/ProductDetails.component";
 import Cart from "./pages/cart/Cart.";
 import CheckoutDetails from "./pages/checkout/CheckoutDetails";
+import CheckoutDetails2 from "./pages/checkout/CheckoutDetails2";
 import Checkout from "./pages/checkout/Checkout";
+import Checkout2 from "./pages/checkout/Checkout2";
 import CheckoutSuccess from "./pages/checkout/CheckoutSuccess";
 import OrderHistory from "./pages/orderHistory/OrderHistory";
 import OrderDetails from "./pages/orderDetails/OrderDetails";
@@ -62,7 +64,12 @@ function App() {
           <Route path="/cart" element={<Cart />}></Route>
           <Route path="/cart2" element={<Cart2 />}></Route>
           <Route path="/checkout-details" element={<CheckoutDetails />}></Route>
+          <Route
+            path="/checkout-details2"
+            element={<CheckoutDetails2 />}
+          ></Route>
           <Route path="/checkout" element={<Checkout />}></Route>
+          <Route path="/checkout2" element={<Checkout2 />}></Route>
           <Route path="/checkout-success" element={<CheckoutSuccess />}></Route>
           <Route path="/order-history" element={<OrderHistory />}></Route>
           <Route path="/order-details/:id" element={<OrderDetails />}></Route>

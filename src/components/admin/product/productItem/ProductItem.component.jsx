@@ -6,6 +6,7 @@ import {
   ADD_TO_CART,
   ADD_TO_CART2,
   CALCULATE_TOTAL_QUANTITY,
+  CALCULATE_TOTAL_QUANTITY2,
 } from "../../../../redux/slice/cartSlice";
 import { useDispatch } from "react-redux";
 
@@ -38,7 +39,7 @@ const ProductItem = ({
 
   const addtoCart2 = () => {
     dispatch(ADD_TO_CART2(product));
-    dispatch(CALCULATE_TOTAL_QUANTITY());
+    dispatch(CALCULATE_TOTAL_QUANTITY2());
   };
 
   return (

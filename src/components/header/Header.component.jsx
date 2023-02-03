@@ -27,6 +27,8 @@ import { AdminOnlyLink, UserOnlyLink } from "../adminOnlyRoute/AdminOnlyRoute";
 import {
   CALCULATE_TOTAL_QUANTITY,
   selectCartTotalQuantity,
+  selectCartTotalQuantity2,
+  CALCULATE_TOTAL_QUANTITY2,
 } from "../../redux/slice/cartSlice";
 
 //Firebase
@@ -51,6 +53,7 @@ const Header = () => {
   const [displayName, setDisplayName] = useState("");
   const [scrollPage] = useState(false);
   const cartTotalQuantity = useSelector(selectCartTotalQuantity);
+  const cartTotalQuantity2 = useSelector(selectCartTotalQuantity2);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -76,6 +79,10 @@ const Header = () => {
 
   useEffect(() => {
     dispatch(CALCULATE_TOTAL_QUANTITY());
+  }, []);
+
+  useEffect(() => {
+    dispatch(CALCULATE_TOTAL_QUANTITY2());
   }, []);
 
   //monitor that user is login or logout
@@ -123,7 +130,7 @@ const Header = () => {
       <span className={styles.cart}>
         <Link to="/cart2">
           2. asztal
-          <p>{cartTotalQuantity}</p>
+          <p>{cartTotalQuantity2}</p>
         </Link>
       </span>
     );
