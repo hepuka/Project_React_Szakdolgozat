@@ -12,20 +12,17 @@ const Navbar = () => {
 
   return (
     <div className={styles.navbar}>
-      <div className={styles.user}>
-        <FaUserCircle size={40} color="#fff" />
-        <h4>{userName}</h4>
-      </div>
+      <div className={styles.user}></div>
       <nav>
         <ul>
           <li>
             <NavLink to="/admin/home" className={activeLink}>
-              Főoldal
+              Üzleti összesítő
             </NavLink>
           </li>
           <li>
             <NavLink to="/admin/all-products" className={activeLink}>
-              Összes termék
+              Minden termék
             </NavLink>
           </li>
           <li>
@@ -46,7 +43,7 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink to="/admin/orders" className={activeLink}>
-              Megrendelések
+              Összes rendelés
             </NavLink>
           </li>
         </ul>

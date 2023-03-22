@@ -64,40 +64,35 @@ const Register = () => {
     <>
       {isLoading && <Loader />}
       <section className={`container ${styles.auth}`}>
-        <Card>
-          <div className={styles.form}>
-            <h2>Új felhasználó regisztrálása</h2>
-            <form onSubmit={registerUser}>
-              <input
-                type="text"
-                placeholder="Email"
-                required
-                value={emailInput}
-                onChange={(e) => setEmailInput(e.target.value)}
-              />
-              <input
-                type="password"
-                placeholder="Jelszó"
-                required
-                value={passwordInput}
-                onChange={(e) => setPasswordInput(e.target.value)}
-              />
-              <input
-                type="password"
-                placeholder="Adja meg újra jelszavát"
-                required
-                value={passwordConfirm}
-                onChange={(e) => setPasswordConfirm(e.target.value)}
-              />
+        <div className={styles.form}>
+          <h2>Új felhasználó regisztrálása</h2>
+          <form onSubmit={registerUser}>
+            <input
+              type="text"
+              placeholder="Email"
+              required
+              value={emailInput}
+              onChange={(e) => setEmailInput(e.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="Jelszó"
+              required
+              value={passwordInput}
+              onChange={(e) => setPasswordInput(e.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="Adja meg újra jelszavát"
+              required
+              value={passwordConfirm}
+              onChange={(e) => setPasswordConfirm(e.target.value)}
+            />
 
-              <button type="submit" className="--btn --btn-primary --btn-block">
-                Regisztráció
-              </button>
-            </form>
-          </div>
-        </Card>
-        <div className={styles.img}>
-          <img src={registerImg} alt="register" width={400} />
+            <button type="submit" className="--btn --btn-primary --btn-block">
+              Regisztráció
+            </button>
+          </form>
         </div>
       </section>
     </>

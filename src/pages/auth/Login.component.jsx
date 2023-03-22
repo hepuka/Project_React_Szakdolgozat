@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styles from "./auth.module.scss";
-import loginImg from "../../assets/login.png";
 import { Link } from "react-router-dom";
 
 import { useNavigate } from "react-router-dom";
@@ -53,38 +52,32 @@ const Login = () => {
     <>
       {isLoading && <Loader />}
       <section className={`container ${styles.auth}`}>
-        <div className={styles.img}>
-          <img src={loginImg} alt="login" width={400} />
+        <div className={styles.form}>
+          <h2>Bejelentkezés</h2>
+          <form onSubmit={loginUser}>
+            <input
+              type="text"
+              placeholder="Email"
+              required
+              value={emailInput}
+              onChange={(e) => setEmailInput(e.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="Jelszó"
+              required
+              value={passwordInput}
+              onChange={(e) => setPasswordInput(e.target.value)}
+            />
+            <button type="submit" className="--btn --btn-primary --btn-block">
+              Tovább
+            </button>
+
+            <div className={styles.links}>
+              <Link to="/reset">Elfelejtett jelszó</Link>
+            </div>
+          </form>
         </div>
-
-        <Card>
-          <div className={styles.form}>
-            <h2>Bejelentkezés</h2>
-            <form onSubmit={loginUser}>
-              <input
-                type="text"
-                placeholder="Email"
-                required
-                value={emailInput}
-                onChange={(e) => setEmailInput(e.target.value)}
-              />
-              <input
-                type="password"
-                placeholder="Jelszó"
-                required
-                value={passwordInput}
-                onChange={(e) => setPasswordInput(e.target.value)}
-              />
-              <button type="submit" className="--btn --btn-primary --btn-block">
-                Tovább
-              </button>
-
-              <div className={styles.links}>
-                <Link to="/reset">Elfelejtett jelszó</Link>
-              </div>
-            </form>
-          </div>
-        </Card>
       </section>
     </>
   );

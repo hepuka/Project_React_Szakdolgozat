@@ -84,7 +84,7 @@ const Contact = () => {
                 </span>
                 <span>
                   <FaEnvelope />
-                  <p>support@hepukashop.com</p>
+                  <p>support@hepukadev.com</p>
                 </span>
                 <span>
                   <GoLocation />

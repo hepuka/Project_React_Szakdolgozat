@@ -159,7 +159,7 @@ const Header = () => {
           <ul onClick={hideMenu}>
             <li className={styles["logo-mobile"]}>
               <Logo />
-              <FaTimes size={22} color="#fff" onClick={hideMenu} />
+              <FaTimes size={22} color="#333" onClick={hideMenu} />
             </li>
             <li>
               <AdminOnlyLink>
@@ -206,7 +206,7 @@ const Header = () => {
                 <NavLink to="/" className={activeLink} onClick={logoutUser}>
                   Kijelentkezés
                 </NavLink>
-                <a href="#home" style={{ color: "white" }}>
+                <a href="#home" style={{ color: "#333" }}>
                   {displayName}
                 </a>
               </ShowOnLogin>

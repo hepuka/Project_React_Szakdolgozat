@@ -10,6 +10,7 @@ import Orders from "../../components/admin/orders/Orders.component";
 import OrderDertails from "../../components/admin/orderDetails/OrderDetails.component";
 import AddUser from "../../components/admin/addUser/AddUser.component";
 import Users from "../../components/admin/users/Users.component";
+
 const Admin = () => {
   return (
     <div className={styles.admin}>

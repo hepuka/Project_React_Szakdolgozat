@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styles from "./ProductList.module.scss";
-import { BsFillGridFill } from "react-icons/bs";
-import { FaListAlt } from "react-icons/fa";
 import Search from "../../../search/Search.component";
 import ProductItem from "../productItem/ProductItem.component";
 import { useDispatch, useSelector } from "react-redux";
@@ -44,12 +42,6 @@ const ProductList = ({ products }) => {
     <div className={styles["product-list"]} id="kunpaosproducts">
       <div className={styles.top}>
         <div className={styles.icons}>
-          <BsFillGridFill
-            size={22}
-            color="#5c5e4c"
-            onClick={() => setGrid(true)}
-          />
-          <FaListAlt size={22} color="#0066d4" onClick={() => setGrid(false)} />
           <p>
             <b>{filteredProducts.length}</b> termék a kínálatban
           </p>

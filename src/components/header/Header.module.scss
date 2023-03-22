@@ -8,8 +8,8 @@
 
 header {
   width: 100%;
-  background-color: var(--color-dark);
-  color: #fff;
+
+  color: var(--color-dark);
 
   .header {
     width: 100%;
@@ -24,7 +24,7 @@ header {
   }
 
   .logo a h2 {
-    color: #fff;
+    color: var(--color-dark);
     cursor: pointer;
   }
 
@@ -44,7 +44,8 @@ header {
       li {
         margin: 0 10px;
         a {
-          color: #fff;
+          color: var(--color-dark);
+          font-size: 15px;
           &:hover {
             color: red;
           }
@@ -58,7 +59,7 @@ header {
 
     .cart a {
       display: flex;
-      color: #fff;
+      color: var(--color-dark);
       position: relative;
       &:hover {
         color: red;
@@ -78,13 +79,14 @@ header {
       margin: 0 15px;
 
       p {
-        color: #fff;
+        color: var(--color-dark);
       }
     }
 
     .links a {
       margin: 0 5px;
-      color: #fff;
+      color: var(--color-dark);
+      font-size: 15px;
       &:hover {
         color: red;
       }

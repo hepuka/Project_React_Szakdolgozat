@@ -35,33 +35,27 @@ const Reset = () => {
     <>
       {isLoading && <Loader />}
       <section className={`container ${styles.auth}`}>
-        <div className={styles.img}>
-          <img src={resetImg} alt="login" width={400} />
+        <div className={styles.form}>
+          <h2>Elfelejtett jelszó</h2>
+
+          <form onSubmit={resetPassword}>
+            <input
+              type="text"
+              placeholder="Email"
+              required
+              value={emailInput}
+              onChange={(e) => setEmailInput(e.target.value)}
+            />
+            <button type="submit" className="--btn --btn-primary --btn-block">
+              Elküld
+            </button>
+            <div className={styles.links}>
+              <p>
+                <Link to="/login">- Vissza -</Link>
+              </p>
+            </div>
+          </form>
         </div>
-
-        <Card>
-          <div className={styles.form}>
-            <h2>Elfelejtett jelszó</h2>
-
-            <form onSubmit={resetPassword}>
-              <input
-                type="text"
-                placeholder="Email"
-                required
-                value={emailInput}
-                onChange={(e) => setEmailInput(e.target.value)}
-              />
-              <button type="submit" className="--btn --btn-primary --btn-block">
-                Elküld
-              </button>
-              <div className={styles.links}>
-                <p>
-                  <Link to="/login">- Vissza -</Link>
-                </p>
-              </div>
-            </form>
-          </div>
-        </Card>
       </section>
     </>
   );
