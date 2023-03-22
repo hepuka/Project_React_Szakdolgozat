@@ -144,22 +144,21 @@ const Cart = () => {
                   <Link to="/menu">&larr; vissza</Link>
                 </div>
                 <br />
-                <Card cardClass={styles.card}>
-                  <p>
-                    <b> {`Tételek száma: ${cartTotalQuantity}`}</b>
-                  </p>
-                  <div className={styles.text}>
-                    <h4>Összeg:</h4>
-                    <h3>{`${cartTotalAmount.toFixed(2)} Ft`}</h3>
-                  </div>
-                  <p>Az összeg 25% ÁFA-t tartalmaz</p>
-                  <button
-                    className="--btn --btn-primary --btn-block"
-                    onClick={checkout}
-                  >
-                    Fizetés leadása
-                  </button>
-                </Card>
+
+                <p>
+                  <b> {`Tételek száma: ${cartTotalQuantity}`}</b>
+                </p>
+                <div className={styles.text}>
+                  <h4>Összeg:</h4>
+                  <h3>{`${cartTotalAmount.toFixed(2)} Ft`}</h3>
+                </div>
+                <p>Az összeg 25% ÁFA-t tartalmaz</p>
+                <button
+                  className="--btn --btn-primary --btn-block"
+                  onClick={checkout}
+                >
+                  Fizetés leadása
+                </button>
               </div>
             </div>
           </>
