@@ -153,9 +153,7 @@ const Header = () => {
                 : `${styles["nav-wrapper"]}`
             }
             onClick={hideMenu}
-          >
-            {" "}
-          </div>
+          ></div>
           <ul onClick={hideMenu}>
             <li className={styles["logo-mobile"]}>
               <Logo />
