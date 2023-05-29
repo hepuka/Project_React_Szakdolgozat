@@ -12,7 +12,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 //Pages
-import { Home, Contact, Login, Register, Reset, Admin } from "./pages/index.js";
+import { Contact, Login, Register, Reset, Admin } from "./pages/index.js";
 
 //Components
 import { Header, Footer } from "./components/index.js";
@@ -76,6 +76,7 @@ function App() {
           <Route path="/orders" element={<Orders />}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
+
         <Footer />
       </BrowserRouter>
     </>

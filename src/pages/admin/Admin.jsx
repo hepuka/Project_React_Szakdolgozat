@@ -14,10 +14,6 @@ import Users from "../../components/admin/users/Users.component";
 const Admin = () => {
   return (
     <div className={styles.admin}>
-      <div className={styles.navbar}>
-        <Navbar />
-      </div>
-
       <div className={styles.content}>
         <Routes>
           <Route path="/home" element={<Home />}></Route>

@@ -39,9 +39,7 @@ import { toast } from "react-toastify";
 const Logo = () => {
   return (
     <div className={styles.logo}>
-      <Link to="/welcome">
-        <h2>kunpao's Coffe.</h2>
-      </Link>
+      <h2>kunpao's Coffe.</h2>
     </div>
   );
 };
@@ -137,98 +135,115 @@ const Header = () => {
   };
 
   return (
-    <header className={scrollPage ? `${styles.fixed}` : null}>
-      <div className={styles.header}>
-        <Logo />
+    <ShowOnLogin>
+      <header className={scrollPage ? `${styles.fixed}` : null}>
+        <div className={styles.header}>
+          <Logo />
 
-        <nav
-          className={
-            showMenu ? `${styles["show-nav"]}` : `${styles["hide-nav"]}`
-          }
-        >
-          <div
+          <nav
             className={
-              showMenu
-                ? `${styles["nav-wrapper"]} ${styles["show-nav-wrapper"]}`
-                : `${styles["nav-wrapper"]}`
+              showMenu ? `${styles["show-nav"]}` : `${styles["hide-nav"]}`
             }
-            onClick={hideMenu}
-          ></div>
-          <ul onClick={hideMenu}>
-            <li className={styles["logo-mobile"]}>
-              <Logo />
-              <FaTimes size={22} color="#333" onClick={hideMenu} />
-            </li>
-            <li>
-              <AdminOnlyLink>
-                {/*                 <Link to="/admin/home">
-                  <button className="--btn --btn-primary">Admin</button>
-                </Link> */}
-                <NavLink to="/admin/home" className={activeLink}>
-                  Admin
-                </NavLink>
-              </AdminOnlyLink>
-            </li>
-            <li>
-              <AdminOnlyLink>
-                <NavLink to="/register" className={activeLink}>
-                  Regisztráció
-                </NavLink>
-              </AdminOnlyLink>
-            </li>
+          >
+            <div
+              className={
+                showMenu
+                  ? `${styles["nav-wrapper"]} ${styles["show-nav-wrapper"]}`
+                  : `${styles["nav-wrapper"]}`
+              }
+              onClick={hideMenu}
+            ></div>
+            <ul onClick={hideMenu}>
+              <li className={styles["logo-mobile"]}>
+                <Logo />
+                <FaTimes size={22} color="#333" onClick={hideMenu} />
+              </li>
 
-            <li>
+              <AdminOnlyLink>
+                <li>
+                  <NavLink to="/register" className={activeLink}>
+                    Regisztráció
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/admin/home" className={activeLink}>
+                    Üzleti összesítő
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/admin/all-products" className={activeLink}>
+                    Minden termék
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/admin/add-product/ADD" className={activeLink}>
+                    Új termék hozzáadása
+                  </NavLink>
+                </li>
+
+                <li>
+                  <NavLink to="/admin/add-user/ADD" className={activeLink}>
+                    Új felhasználó hozzáadása
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/admin/users" className={activeLink}>
+                    Felhasználók
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/admin/orders" className={activeLink}>
+                    Összes rendelés
+                  </NavLink>
+                </li>
+              </AdminOnlyLink>
+
               <UserOnlyLink>
-                <ShowOnLogin>
+                <li>
                   <NavLink to="/menu" className={activeLink}>
                     Menü
                   </NavLink>
-                </ShowOnLogin>
-              </UserOnlyLink>
-            </li>
-          </ul>
-
-          <div className={styles["header-right"]} onClick={hideMenu}>
-            <span className={styles.links}>
-              <UserOnlyLink>
-                <ShowOnLogin>
+                </li>
+                <li>
                   <NavLink to="/order-history" className={activeLink}>
                     Rendelések
                   </NavLink>
-                </ShowOnLogin>
+                </li>
+                <li>
+                  <Cart />
+                </li>
+
+                <li>
+                  <Cart2 />
+                </li>
               </UserOnlyLink>
-              <ShowOnLogin>
+
+              <li>
                 <NavLink to="/contact" className={activeLink}>
                   Kapcsolat
                 </NavLink>
+              </li>
+              <li>
                 <NavLink to="/" className={activeLink} onClick={logoutUser}>
                   Kijelentkezés
                 </NavLink>
+              </li>
+              <li>
                 <a href="#home" style={{ color: "#333" }}>
-                  Bejelentkezve: {displayName}
+                  <em> Bejelentkezve: {displayName}</em>
                 </a>
-              </ShowOnLogin>
-            </span>
-            <UserOnlyLink>
-              <ShowOnLogin>
-                <Cart />
-              </ShowOnLogin>
-            </UserOnlyLink>
-            <UserOnlyLink>
-              <ShowOnLogin>
-                <Cart2 />
-              </ShowOnLogin>
-            </UserOnlyLink>
-          </div>
-        </nav>
+              </li>
+            </ul>
+          </nav>
 
-        {/* responsive menü */}
-        <div className={styles["menu-icon"]}>
-          <Cart />
-          <HiOutlineMenuAlt3 size={28} onClick={toggleMenu} />
+          {/* responsive menü */}
+          <div className={styles["menu-icon"]}>
+            <Cart />
+            <HiOutlineMenuAlt3 size={28} onClick={toggleMenu} />
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </ShowOnLogin>
   );
 };
 
