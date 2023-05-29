@@ -109,70 +109,69 @@ const AddUser = () => {
             "Felhasználó adatainak módosítása"
           )}
         </h2>
-        <Card cardClass={styles.card}>
-          <form onSubmit={detectForm(id, addUser, editUser)}>
-            <label>Felhasználó neve</label>
-            <input
-              type="text"
-              placeholder="Add meg a felhasználó nevét"
-              required
-              name="name"
-              value={user.name}
-              onChange={(e) => handleInputChange(e)}
-            />
 
-            <label>Felhasználó email címe</label>
-            <input
-              type="email"
-              placeholder="Regisztrációs email cím"
-              required
-              name="email"
-              value={user.email}
-              onChange={(e) => handleInputChange(e)}
-            />
-            <label>Felhasználó adószáma</label>
-            <input
-              type="text"
-              placeholder="Felhasználó adószáma"
-              required
-              name="tax"
-              value={user.tax}
-              onChange={(e) => handleInputChange(e)}
-            />
-            <label>PIN kód</label>
-            <input
-              type="text"
-              placeholder="Adj meg egy PIN kódot"
-              required
-              name="pin"
-              value={user.pin}
-              onChange={(e) => handleInputChange(e)}
-            />
+        <form onSubmit={detectForm(id, addUser, editUser)}>
+          <label>Felhasználó neve</label>
+          <input
+            type="text"
+            placeholder="Add meg a felhasználó nevét"
+            required
+            name="name"
+            value={user.name}
+            onChange={(e) => handleInputChange(e)}
+          />
 
-            <label>Jogosultság</label>
-            <select
-              required
-              name="role"
-              value={user.role}
-              onChange={(e) => handleInputChange(e)}
-            >
-              <option value="" disabled>
-                -- Válassz jogosultságot --
-              </option>
-              {categories.map((item) => {
-                return (
-                  <option key={item.id} value={item.name}>
-                    {item.name}
-                  </option>
-                );
-              })}
-            </select>
+          <label>Felhasználó email címe</label>
+          <input
+            type="email"
+            placeholder="Regisztrációs email cím"
+            required
+            name="email"
+            value={user.email}
+            onChange={(e) => handleInputChange(e)}
+          />
+          <label>Felhasználó adószáma</label>
+          <input
+            type="text"
+            placeholder="Felhasználó adószáma"
+            required
+            name="tax"
+            value={user.tax}
+            onChange={(e) => handleInputChange(e)}
+          />
+          <label>PIN kód</label>
+          <input
+            type="text"
+            placeholder="Adj meg egy PIN kódot"
+            required
+            name="pin"
+            value={user.pin}
+            onChange={(e) => handleInputChange(e)}
+          />
 
-            <button className="--btn --btn-primary">
-              {detectForm(id, "Hozzáad", "Módosít")}
-            </button>
-          </form>
-        </Card>
+          <label>Jogosultság</label>
+          <select
+            required
+            name="role"
+            value={user.role}
+            onChange={(e) => handleInputChange(e)}
+          >
+            <option value="" disabled>
+              -- Válassz jogosultságot --
+            </option>
+            {categories.map((item) => {
+              return (
+                <option key={item.id} value={item.name}>
+                  {item.name}
+                </option>
+              );
+            })}
+          </select>
+
+          <button className="--btn --btn-primary">
+            {detectForm(id, "Hozzáad", "Módosít")}
+          </button>
+        </form>
       </div>
     </>
   );

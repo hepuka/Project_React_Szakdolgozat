@@ -38,28 +38,25 @@ const Home = () => {
   }, [dispatch, data, fbProducts]);
 
   return (
- 
-      <div className={styles.home}>
-        <h2>Üzleti összesítő</h2>
-        <div className={styles["info-box"]}>
-          <InfoBox
-            cardClass={`${styles.card} ${styles.card1}`}
-            title={"Bevétel"}
-            count={`${totalOrderAmount} Ft`}
-          />
-          <InfoBox
-            cardClass={`${styles.card} ${styles.card2}`}
-            title={"Termékek száma"}
-            count={products.length}
-          />
-          <InfoBox
-            cardClass={`${styles.card} ${styles.card3}`}
-            title={"Összes megrendelés"}
-            count={orders.length}
-          />
-        </div>
+    <div className={styles.home}>
+      <div className={styles["info-box"]}>
+        <InfoBox
+          cardClass={`${styles.card} ${styles.card1}`}
+          title={"Bevétel"}
+          count={`${totalOrderAmount} Ft`}
+        />
+        <InfoBox
+          cardClass={`${styles.card} ${styles.card2}`}
+          title={"Termékek száma"}
+          count={products.length}
+        />
+        <InfoBox
+          cardClass={`${styles.card} ${styles.card3}`}
+          title={"Összes megrendelés"}
+          count={orders.length}
+        />
       </div>
-   
+    </div>
   );
 };
 

@@ -151,106 +151,104 @@ const AddProduct = () => {
             "Termék adatainak módosítása"
           )}
         </h2>
-        <Card cardClass={styles.card}>
-          <form onSubmit={detectForm(id, addProduct, editProduct)}>
-            <label>Termék neve</label>
+
+        <form onSubmit={detectForm(id, addProduct, editProduct)}>
+          <label>Termék neve</label>
+          <input
+            type="text"
+            placeholder="név"
+            required
+            name="name"
+            value={product.name}
+            onChange={(e) => handleInputChange(e)}
+          />
+
+          <label>Kép hozzáadása</label>
+
+          {uploadProgress === 0 ? null : (
+            <div className={styles.progress}>
+              <div
+                className={styles["progress-bar"]}
+                style={{ width: `${uploadProgress}%` }}
+              >
+                {uploadProgress < 100
+                  ? `Uploading ${uploadProgress}`
+                  : `Upload completed! ${uploadProgress}%`}
+              </div>
+            </div>
+          )}
+
+          <input
+            type="file"
+            accept="image/*"
+            placeholder="Product Image"
+            name="image"
+            onChange={(e) => handleImageChange(e)}
+          />
+          {product.imageURL === "" ? null : (
             <input
               type="text"
-              placeholder="név"
+              name="imageURL"
+              placeholder="Image URL"
+              value={product.imageURL}
               required
-              name="name"
-              value={product.name}
-              onChange={(e) => handleInputChange(e)}
+              disabled
             />
+          )}
 
-            <label>Kép hozzáadása</label>
-            <Card cardClass={styles.group}>
-              {uploadProgress === 0 ? null : (
-                <div className={styles.progress}>
-                  <div
-                    className={styles["progress-bar"]}
-                    style={{ width: `${uploadProgress}%` }}
-                  >
-                    {uploadProgress < 100
-                      ? `Uploading ${uploadProgress}`
-                      : `Upload completed! ${uploadProgress}%`}
-                  </div>
-                </div>
-              )}
+          <label>Egységár (Ft)</label>
+          <input
+            type="text"
+            placeholder="Product price"
+            required
+            name="price"
+            value={product.price}
+            onChange={(e) => handleInputChange(e)}
+          />
 
-              <input
-                type="file"
-                accept="image/*"
-                placeholder="Product Image"
-                name="image"
-                onChange={(e) => handleImageChange(e)}
-              />
-              {product.imageURL === "" ? null : (
-                <input
-                  type="text"
-                  name="imageURL"
-                  placeholder="Image URL"
-                  value={product.imageURL}
-                  required
-                  disabled
-                />
-              )}
-            </Card>
+          <label>Kategória</label>
+          <select
+            required
+            name="category"
+            value={product.category}
+            onChange={(e) => handleInputChange(e)}
+          >
+            <option value="" disabled>
+              -- Válassz kategóriát --
+            </option>
+            {categories.map((item) => {
+              return (
+                <option key={item.id} value={item.name}>
+                  {item.name}
+                </option>
+              );
+            })}
+          </select>
 
-            <label>Egységár (Ft)</label>
-            <input
-              type="text"
-              placeholder="Product price"
-              required
-              name="price"
-              value={product.price}
-              onChange={(e) => handleInputChange(e)}
-            />
+          <label>Mennyiség</label>
+          <input
+            type="text"
+            placeholder="Add meg a termék mennyiségét"
+            required
+            name="packaging"
+            value={product.packaging}
+            onChange={(e) => handleInputChange(e)}
+          />
 
-            <label>Kategória</label>
-            <select
-              required
-              name="category"
-              value={product.category}
-              onChange={(e) => handleInputChange(e)}
-            >
-              <option value="" disabled>
-                -- Válassz kategóriát --
-              </option>
-              {categories.map((item) => {
-                return (
-                  <option key={item.id} value={item.name}>
-                    {item.name}
-                  </option>
-                );
-              })}
-            </select>
+          <label>Termék leírása</label>
+          <textarea
+            name="desc"
+            value={product.desc}
+            required
+            onChange={(e) => handleInputChange(e)}
+            cols="30"
+            rows="10"
+          ></textarea>
 
-            <label>Mennyiség</label>
-            <input
-              type="text"
-              placeholder="Add meg a termék mennyiségét"
-              required
-              name="packaging"
-              value={product.packaging}
-              onChange={(e) => handleInputChange(e)}
-            />
-
-            <label>Termék leírása</label>
-            <textarea
-              name="desc"
-              value={product.desc}
-              required
-              onChange={(e) => handleInputChange(e)}
-              cols="30"
-              rows="10"
-            ></textarea>
-
-            <button className="--btn --btn-primary">
-              {detectForm(id, "Hozzáad", "Módosít")}
-            </button>
-          </form>
-        </Card>
+          <button className="--btn --btn-primary">
+            {detectForm(id, "Hozzáad", "Módosít")}
+          </button>
+        </form>
       </div>
     </>
   );

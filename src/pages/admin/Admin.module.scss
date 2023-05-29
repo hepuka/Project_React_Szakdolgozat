@@ -1,12 +1,6 @@
-.admin {
+.content {
   display: flex;
-
-  .navbar {
-    width: 25%;
-    min-height: 80vh;
-  }
-  .content {
-    width: 75%;
-    padding: 1rem;
-  }
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
 }
