@@ -16,7 +16,6 @@ registerUser függvény
 
 import React, { useState } from "react";
 import styles from "./auth.module.scss";
-import registerImg from "../../assets/register.png";
 
 //Firebase Import
 
@@ -25,7 +24,7 @@ import { auth } from "../../firebase/config";
 import { toast } from "react-toastify";
 
 //compomemts
-import Card from "../../components/card/Card.component";
+
 import { useNavigate } from "react-router-dom";
 import Loader from "../../components/loader/Loader.component";
 

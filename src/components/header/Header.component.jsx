@@ -205,7 +205,7 @@ const Header = () => {
                   Kijelentkezés
                 </NavLink>
                 <a href="#home" style={{ color: "#333" }}>
-                  {displayName}
+                  Bejelentkezve: {displayName}
                 </a>
               </ShowOnLogin>
             </span>

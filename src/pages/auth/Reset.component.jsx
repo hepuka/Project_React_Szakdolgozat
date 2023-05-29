@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styles from "./auth.module.scss";
-import resetImg from "../../assets/forgot.png";
 
 //Firebase
 import { Link } from "react-router-dom";
@@ -9,7 +8,7 @@ import { sendPasswordResetEmail } from "firebase/auth";
 import { toast } from "react-toastify";
 
 //compomemts
-import Card from "../../components/card/Card.component";
+
 import Loader from "../../components/loader/Loader.component";
 
 const Reset = () => {
