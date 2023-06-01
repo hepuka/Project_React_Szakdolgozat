@@ -8,7 +8,6 @@ import {
   DECREASE_CART,
   selectCartItems,
 } from "../../../../redux/slice/cartSlice";
-
 import { useDispatch, useSelector } from "react-redux";
 import useFetchDocument from "../../../../customHooks/useFetchDocument";
 import useFetchCollection from "../../../../customHooks/useFetchCollection";

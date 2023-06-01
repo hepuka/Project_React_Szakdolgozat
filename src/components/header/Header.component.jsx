@@ -23,6 +23,7 @@ import {
 } from "../../redux/slice/authSlice";
 import ShowOnLogin from "../hiddenLink/hiddenLink";
 import { AdminOnlyLink, UserOnlyLink } from "../adminOnlyRoute/AdminOnlyRoute";
+
 import Notiflix from "notiflix";
 
 // import {
@@ -183,7 +184,7 @@ const Header = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/order-history" className={activeLink}>
+                <NavLink to="/orders" className={activeLink}>
                   Rendelések
                 </NavLink>
               </li>

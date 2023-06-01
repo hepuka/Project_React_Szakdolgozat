@@ -8,7 +8,6 @@ import styles from "./CheckoutForm.module.scss";
 import Card from "../card/Card.component";
 import CheckoutSummary from "../checkoutSummary/CheckoutSummary.component";
 import spinnerImg from "../../assets/spinner.jpg";
-import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectEmail,
@@ -24,6 +23,7 @@ import { selectShippingAddress } from "../../redux/slice/checkoutSlice";
 import { addDoc, collection, Timestamp } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { useNavigate } from "react-router-dom";
+import Notiflix from "notiflix";
 
 const CheckoutForm = () => {
   const [message, setMessage] = useState(null);
@@ -75,10 +75,11 @@ const CheckoutForm = () => {
     try {
       addDoc(collection(db, "kunpaosorders"), orderConfig);
       dispatch(CLEAR_CART());
-      toast.success("Megrendelés leadva");
+      Notiflix.Notify.success("Megrendelés leadva");
+
       navigate("/checkout-success");
     } catch (error) {
-      toast.error(error.message);
+      Notiflix.Notify.failure(error.message);
     }
   };
 
@@ -104,14 +105,14 @@ const CheckoutForm = () => {
       .then((result) => {
         // ok - paymentIntent // bad - error
         if (result.error) {
-          toast.error(result.error.message);
           setMessage(result.error.message);
           return;
         }
         if (result.paymentIntent) {
           if (result.paymentIntent.status === "succeeded") {
             setIsLoading(false);
-            toast.success("Sikeres fizetés");
+            Notiflix.Notify.success("Sikeres fizetés");
+
             saveOrder();
           }
         }

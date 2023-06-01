@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import useFetchCollection from "../../../customHooks/useFetchCollection";
 import {
@@ -10,13 +10,11 @@ import styles from "./Product.module.scss";
 import ProductFilter from "./productFilter/ProductFilter.component";
 import ProductList from "./productList/ProductList.comoponent";
 import spinner from "../../../assets/spinner.jpg";
-import { FaCogs } from "react-icons/fa";
 
 const Product = () => {
   const { data, isLoading } = useFetchCollection("kunpaosproducts");
   const products = useSelector(selectProducts);
   const dispatch = useDispatch();
-  const [showFilter, setShowFilter] = useState(false);
 
   useEffect(() => {
     dispatch(
@@ -32,20 +30,11 @@ const Product = () => {
     );
   }, [dispatch, data]);
 
-  const toggleFilter = () => {
-    setShowFilter(!showFilter);
-  };
-
   return (
     <div className={styles.product}>
-      <aside
-        className={
-          showFilter ? `${styles.filter} ${styles.show}` : `${styles.filter}`
-        }
-      >
+      <div className={styles.filter}>
         {isLoading ? null : <ProductFilter />}
-      </aside>
-
+      </div>
       <div className={styles.content}>
         {isLoading ? (
           <img
@@ -57,12 +46,6 @@ const Product = () => {
         ) : (
           <ProductList products={products} />
         )}
-        <div className={styles.icon} onClick={toggleFilter}>
-          <FaCogs size={20} color="red" />
-          <p>
-            <b>{showFilter ? "Hide Filter" : "Show Filter"}</b>
-          </p>
-        </div>
       </div>
     </div>
   );

@@ -10,8 +10,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-//Components
-import { Header, Footer } from "./components/index.js";
+import Header from "./components/header/Header.component.jsx";
+import Footer from "./components/footer/Footer.compopnent.jsx";
 import ProductDetails from "./components/admin/product/productDetails/ProductDetails.component";
 import Cart from "./pages/cart/Cart.";
 import CheckoutDetails from "./pages/checkout/CheckoutDetails";
@@ -19,12 +19,10 @@ import CheckoutDetails2 from "./pages/checkout/CheckoutDetails2";
 import Checkout from "./pages/checkout/Checkout";
 import Checkout2 from "./pages/checkout/Checkout2";
 import CheckoutSuccess from "./pages/checkout/CheckoutSuccess";
-import OrderHistory from "./pages/orderHistory/OrderHistory";
 import OrderDetails from "./pages/orderDetails/OrderDetails.js";
 import Orders from "./components/admin/orders/Orders.component";
 import NotFound from "./pages/notFound/NotFound";
 import Welcome from "./pages/wecome/Welcome";
-import Menu from "./pages/menu/Menu";
 import Cart2 from "./pages/cart/Cart2";
 import Home from "./components/admin/home/Home.component.jsx";
 import ViewProduct from "./components/admin/viewProduct/ViewProduct.component.jsx";
@@ -35,6 +33,7 @@ import Login from "./pages/auth/Login.component.jsx";
 import Register from "./pages/auth/Register.component.jsx";
 import Reset from "./pages/auth/Reset.component.jsx";
 import Contact from "./pages/contact/Contact.jsx";
+import Product from "./components/admin/product/Product.component.jsx";
 
 function App() {
   return (
@@ -52,13 +51,12 @@ function App() {
             <Route path="/register" element={<Register />}></Route>
             <Route path="/reset" element={<Reset />}></Route>
             <Route path="/welcome" element={<Welcome />}></Route>
-            <Route path="/menu" element={<Menu />}></Route>
             <Route path="/business" element={<Home />}></Route>
+            <Route path="/menu" element={<Product />}></Route>
             <Route path="/all-products" element={<ViewProduct />}></Route>
             <Route path="/add-product/:id" element={<AddProduct />}></Route>
             <Route path="/add-user/:id" element={<AddUser />}></Route>
             <Route path="/users" element={<Users />}></Route>
-
             <Route
               path="/product-details/:id"
               element={<ProductDetails />}
@@ -79,7 +77,7 @@ function App() {
               path="/checkout-success"
               element={<CheckoutSuccess />}
             ></Route>
-            <Route path="/order-history" element={<OrderHistory />}></Route>
+
             <Route path="/order-details/:id" element={<OrderDetails />}></Route>
             <Route path="/orders" element={<Orders />}></Route>
             <Route path="*" element={<NotFound />}></Route>

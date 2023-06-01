@@ -8,7 +8,7 @@ import {
   uploadBytesResumable,
 } from "firebase/storage";
 import { db, storage } from "../../../firebase/config";
-import { toast } from "react-toastify";
+import Notiflix from "notiflix";
 import { addDoc, collection, doc, setDoc, Timestamp } from "firebase/firestore";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -71,12 +71,12 @@ const AddProduct = () => {
         setUploadProgress(progress);
       },
       (error) => {
-        toast.error(error.message);
+        Notiflix.Notify.failure(error.message);
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           setProduct({ ...product, imageURL: downloadURL });
-          toast.success("Sikeres képfeltöltés!");
+          Notiflix.Notify.success("Sikeres képfeltöltés!");
         });
       }
     );
@@ -101,11 +101,12 @@ const AddProduct = () => {
       setUploadProgress(0);
       setProduct({ ...initialSate });
 
-      toast.success("Sikeres termék feltöltés!");
+      Notiflix.Notify.success("Sikeres termék feltöltés!");
+
       navigate("/all-products");
     } catch (error) {
       setIsLoading(false);
-      toast.error(error.message);
+      Notiflix.Notify.failure(error.message);
     }
   };
 
@@ -131,11 +132,12 @@ const AddProduct = () => {
       });
 
       setIsLoading(false);
-      toast.success("Termék adatai módosítva!");
+      Notiflix.Notify.success("Termék adatai módosítva!");
+
       navigate("/admin/all-products");
     } catch (error) {
       setIsLoading(false);
-      toast.error(error.message);
+      Notiflix.Notify.failure(error.message);
     }
   };
 

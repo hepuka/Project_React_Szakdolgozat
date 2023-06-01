@@ -8,7 +8,7 @@ header {
   height: 100%;
 
   .logo h2 {
-    color: #caaa94;
+    color: var(--color-orange);
     padding: 1rem;
   }
 
@@ -29,11 +29,11 @@ header {
       li {
         margin: 0 10px;
         padding: 30px;
-        color: #caaa94;
+        color: var(--color-orange);
         font-size: 15px;
 
         a {
-          color: #caaa94;
+          color: var(--color-orange);
           font-size: 15px;
 
           &:hover {

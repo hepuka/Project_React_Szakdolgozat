@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import useFetchCollection from "../../../customHooks/useFetchCollection";
 import Loader from "../../loader/Loader.component";
 import styles from "./Orders.module.scss";
-
 import {
   selectOrderHistory,
   STORE_ORDERS,

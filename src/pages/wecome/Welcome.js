@@ -1,5 +1,4 @@
 import React from "react";
-import welcome from "../../assets/cafe.png";
 import styles from "./Welcome.module.scss";
 
 const Welcome = () => {

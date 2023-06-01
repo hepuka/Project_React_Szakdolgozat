@@ -1,7 +1,7 @@
 import { doc, setDoc, Timestamp } from "firebase/firestore";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import Notiflix from "notiflix";
 import { db } from "../../../firebase/config";
 import Card from "../../card/Card.component";
 import Loader from "../../loader/Loader.component";
@@ -33,11 +33,11 @@ const ChangeOrderStatus = ({ order, id }) => {
       setDoc(doc(db, "kunpaosorders", id), orderConfig);
 
       setIsLoading(false);
-      toast.success("Megrendelés állapota módosítva!");
+      Notiflix.Notify.info("Megrendelés állapota módosítva!");
       navigate("/orders");
     } catch (error) {
       setIsLoading(false);
-      toast.error(error.message);
+      Notiflix.Notify.failure(error.message);
     }
   };
 

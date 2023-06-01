@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./ProductItem.module.scss";
 import Card from "../../../card/Card.component";
-import { Link } from "react-router-dom";
 import {
   ADD_TO_CART,
   ADD_TO_CART2,

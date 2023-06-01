@@ -7,10 +7,10 @@ const NotFound = () => {
     <div className={styles["not-found"]}>
       <div>
         <h2>404</h2>
-        <p>hepukaShop message</p>
-        <p>Page not found.</p>
-        <button className="--btn">
-          <Link to="/">&larr; Back To Home</Link>
+        <p>KunPao's Coffee</p>
+        <p>Az oldal nem található</p>
+        <button className="--btn --btn-primary">
+          <Link to="/welcome">Vissza a főoldalra</Link>
         </button>
       </div>
     </div>
