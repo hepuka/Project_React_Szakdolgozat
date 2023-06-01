@@ -34,15 +34,40 @@ body {
   font-family: var(--font-family);
 }
 
-section {
-  width: 100%;
-  padding: 4rem 0;
+.app {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  grid-template-areas:
+    "header header header header header header header header header"
+    "main main main main main main main main main"
+    "main main main main main main main main main"
+    "main main main main main main main main main"
+    "main main main main main main main main main"
+    "main main main main main main main main main"
+    "main main main main main main main main main"
+    "main main main main main main main main main"
+    "footer footer footer footer footer footer footer footer footer";
+  height: 100vh;
 }
 
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 20px;
+.item-a {
+  grid-area: header;
+  background-color: #6f4e37;
+}
+.item-b {
+  grid-area: main;
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  background-color: #dcb499;
+}
+.item-c {
+  grid-area: footer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #6f4e37;
 }
 
 /* UTILITY CLASSES */
@@ -279,18 +304,9 @@ p {
   font-size: 1.6rem;
   font-weight: 400;
   padding: 6px 8px;
-  margin: 0 5px 0 0;
   border: 1px solid transparent;
   border-radius: 3px;
   cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.3s;
-}
-
-.--btn:hover {
-  transform: translateY(-2px);
 }
 
 .--btn-lg {
@@ -302,8 +318,9 @@ p {
 }
 
 .--btn-primary {
-  color: #fff;
-  background: #5c5e4c;
+  color: #caaa94;
+  background-color: #6f4e37;
+  font-weight: bold;
 }
 .--btn-secondary {
   color: #fff;

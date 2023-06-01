@@ -1,59 +1,24 @@
 .product {
-  width: 500px;
-
-  h2 {
-    margin-bottom: 50px;
-  }
-  .card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  form {
-    label {
-      display: block;
-      font-size: 1.5rem;
-    }
-    input[type="text"],
-    input[type="number"],
-    input[type="file"],
-    input[type="email"],
-    select,
-    textarea,
-    input[type="password"] {
-      display: block;
-      font-size: 1.6rem;
-      font-weight: 300;
-      padding: 1rem;
-      margin: 1rem auto;
-      width: 100%;
-      border: 1px solid #777;
-      border-radius: 3px;
-      outline: none;
-    }
-
-    // textarea {
-    //   width: 100%;
-    // }
-
-    .progress {
-      background-color: #aaa;
-      border: 1px solid transparent;
-      border-radius: 10px;
-      .progress-bar {
-        background-color: var(--light-blue);
-        border: 1px solid transparent;
-        border-radius: 10px;
-        color: #fff;
-        font-size: 1.2rem;
-        font-weight: 500;
-        padding: 0 1rem;
-      }
-    }
-  }
+  grid-column: 7/10;
+  grid-row: 2/7;
 }
 
-.group {
-  border: 1px solid var(--dark-blue);
-  padding: 5px;
+form {
+  label {
+    font-size: 1.3rem;
+  }
+  input[type="text"],
+  input[type="number"],
+  input[type="file"],
+  input[type="email"],
+  select,
+  textarea,
+  input[type="password"] {
+    padding: 1rem;
+    margin: 1rem auto;
+    width: 100%;
+    border: 1px solid #777;
+    border-radius: 3px;
+    outline: none;
+  }
 }

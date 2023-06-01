@@ -11,25 +11,26 @@
 
 import React, { useState } from "react";
 import styles from "./Header.module.scss";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   REMOVE_ACTIVE_USER,
   SET_ACTIVE_USER,
 } from "../../redux/slice/authSlice";
 import ShowOnLogin from "../hiddenLink/hiddenLink";
 import { AdminOnlyLink, UserOnlyLink } from "../adminOnlyRoute/AdminOnlyRoute";
+import Notiflix from "notiflix";
 
-import {
-  CALCULATE_TOTAL_QUANTITY,
-  selectCartTotalQuantity,
-  selectCartTotalQuantity2,
-  CALCULATE_TOTAL_QUANTITY2,
-} from "../../redux/slice/cartSlice";
+// import {
+//   CALCULATE_TOTAL_QUANTITY,
+//   selectCartTotalQuantity,
+//   selectCartTotalQuantity2,
+//   CALCULATE_TOTAL_QUANTITY2,
+// } from "../../redux/slice/cartSlice";
 
 //Firebase
 import { auth } from "../../firebase/config";
@@ -49,9 +50,8 @@ const activeLink = ({ isActive }) => (isActive ? `${styles.active}` : "");
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [displayName, setDisplayName] = useState("");
-  const [scrollPage] = useState(false);
-  const cartTotalQuantity = useSelector(selectCartTotalQuantity);
-  const cartTotalQuantity2 = useSelector(selectCartTotalQuantity2);
+  // const cartTotalQuantity = useSelector(selectCartTotalQuantity);
+  // const cartTotalQuantity2 = useSelector(selectCartTotalQuantity2);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -67,7 +67,8 @@ const Header = () => {
   const logoutUser = () => {
     signOut(auth)
       .then(() => {
-        toast.success("Sikeres kijelentkezés!");
+        Notiflix.Notify.success("Sikeres kijelentkezés!");
+
         navigate("/");
       })
       .catch((error) => {
@@ -75,13 +76,13 @@ const Header = () => {
       });
   };
 
-  useEffect(() => {
-    dispatch(CALCULATE_TOTAL_QUANTITY());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(CALCULATE_TOTAL_QUANTITY());
+  // }, []);
 
-  useEffect(() => {
-    dispatch(CALCULATE_TOTAL_QUANTITY2());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(CALCULATE_TOTAL_QUANTITY2());
+  // }, []);
 
   //monitor that user is login or logout
   useEffect(() => {
@@ -112,135 +113,111 @@ const Header = () => {
     });
   }, [dispatch, displayName]);
 
-  const Cart = () => {
-    return (
-      <span className={styles.cart}>
-        <Link to="/cart">
-          1. asztal
-          <p>{cartTotalQuantity}</p>
-        </Link>
-      </span>
-    );
-  };
-
-  const Cart2 = () => {
-    return (
-      <span className={styles.cart}>
-        <Link to="/cart2">
-          2. asztal
-          <p>{cartTotalQuantity2}</p>
-        </Link>
-      </span>
-    );
-  };
-
   return (
     <ShowOnLogin>
-      <header className={scrollPage ? `${styles.fixed}` : null}>
-        <div className={styles.header}>
-          <Logo />
+      <header>
+        <Logo />
 
-          <nav
+        <nav
+          className={
+            showMenu ? `${styles["show-nav"]}` : `${styles["hide-nav"]}`
+          }
+        >
+          <div
             className={
-              showMenu ? `${styles["show-nav"]}` : `${styles["hide-nav"]}`
+              showMenu
+                ? `${styles["nav-wrapper"]} ${styles["show-nav-wrapper"]}`
+                : `${styles["nav-wrapper"]}`
             }
-          >
-            <div
-              className={
-                showMenu
-                  ? `${styles["nav-wrapper"]} ${styles["show-nav-wrapper"]}`
-                  : `${styles["nav-wrapper"]}`
-              }
-              onClick={hideMenu}
-            ></div>
-            <ul onClick={hideMenu}>
-              <li className={styles["logo-mobile"]}>
-                <Logo />
-                <FaTimes size={22} color="#333" onClick={hideMenu} />
-              </li>
+            onClick={hideMenu}
+          ></div>
+          <ul onClick={hideMenu}>
+            <li className={styles["logo-mobile"]}>
+              <Logo />
+              <FaTimes size={22} color="#333" onClick={hideMenu} />
+            </li>
 
-              <AdminOnlyLink>
-                <li>
-                  <NavLink to="/register" className={activeLink}>
-                    Regisztráció
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/admin/home" className={activeLink}>
-                    Üzleti összesítő
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/admin/all-products" className={activeLink}>
-                    Minden termék
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/admin/add-product/ADD" className={activeLink}>
-                    Új termék hozzáadása
-                  </NavLink>
-                </li>
-
-                <li>
-                  <NavLink to="/admin/add-user/ADD" className={activeLink}>
-                    Új felhasználó hozzáadása
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/admin/users" className={activeLink}>
-                    Felhasználók
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/admin/orders" className={activeLink}>
-                    Összes rendelés
-                  </NavLink>
-                </li>
-              </AdminOnlyLink>
-
-              <UserOnlyLink>
-                <li>
-                  <NavLink to="/menu" className={activeLink}>
-                    Menü
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/order-history" className={activeLink}>
-                    Rendelések
-                  </NavLink>
-                </li>
-                <li>
-                  <Cart />
-                </li>
-
-                <li>
-                  <Cart2 />
-                </li>
-              </UserOnlyLink>
-
+            <AdminOnlyLink>
               <li>
-                <NavLink to="/contact" className={activeLink}>
-                  Kapcsolat
+                <NavLink to="/register" className={activeLink}>
+                  Regisztráció
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/" className={activeLink} onClick={logoutUser}>
-                  Kijelentkezés
+                <NavLink to="/business" className={activeLink}>
+                  Üzleti összesítő
                 </NavLink>
               </li>
               <li>
-                <a href="#home" style={{ color: "#333" }}>
-                  <em> Bejelentkezve: {displayName}</em>
-                </a>
+                <NavLink to="/all-products" className={activeLink}>
+                  Minden termék
+                </NavLink>
               </li>
-            </ul>
-          </nav>
+              <li>
+                <NavLink to="/add-product/ADD" className={activeLink}>
+                  Új termék hozzáadása
+                </NavLink>
+              </li>
 
-          {/* responsive menü */}
-          <div className={styles["menu-icon"]}>
-            <Cart />
-            <HiOutlineMenuAlt3 size={28} onClick={toggleMenu} />
-          </div>
+              <li>
+                <NavLink to="/add-user/ADD" className={activeLink}>
+                  Új felhasználó hozzáadása
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/users" className={activeLink}>
+                  Felhasználók
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/orders" className={activeLink}>
+                  Összes rendelés
+                </NavLink>
+              </li>
+            </AdminOnlyLink>
+
+            <UserOnlyLink>
+              <li>
+                <NavLink to="/menu" className={activeLink}>
+                  Menü
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/order-history" className={activeLink}>
+                  Rendelések
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/cart" className={activeLink}>
+                  1.asztal
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink to="/cart2" className={activeLink}>
+                  2.asztal
+                </NavLink>
+              </li>
+            </UserOnlyLink>
+
+            <li>
+              <NavLink to="/contact" className={activeLink}>
+                Kapcsolat
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/" className={activeLink} onClick={logoutUser}>
+                Kijelentkezés
+              </NavLink>
+            </li>
+            <li>Bejelentkezve: {displayName}</li>
+          </ul>
+        </nav>
+
+        {/* responsive menü */}
+        <div className={styles["menu-icon"]}>
+          {/* <Cart /> */}
+          <HiOutlineMenuAlt3 size={28} onClick={toggleMenu} />
         </div>
       </header>
     </ShowOnLogin>

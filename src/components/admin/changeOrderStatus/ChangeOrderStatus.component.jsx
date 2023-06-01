@@ -1,4 +1,4 @@
-import { collection, doc, setDoc, Timestamp } from "firebase/firestore";
+import { doc, setDoc, Timestamp } from "firebase/firestore";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -34,7 +34,7 @@ const ChangeOrderStatus = ({ order, id }) => {
 
       setIsLoading(false);
       toast.success("Megrendelés állapota módosítva!");
-      navigate("/order-history");
+      navigate("/orders");
     } catch (error) {
       setIsLoading(false);
       toast.error(error.message);

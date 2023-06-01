@@ -6,17 +6,12 @@
 
 */
 
-import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-//Pages
-import { Contact, Login, Register, Reset, Admin } from "./pages/index.js";
-
 //Components
 import { Header, Footer } from "./components/index.js";
-import AdminOnlyRoute from "./components/adminOnlyRoute/AdminOnlyRoute";
 import ProductDetails from "./components/admin/product/productDetails/ProductDetails.component";
 import Cart from "./pages/cart/Cart.";
 import CheckoutDetails from "./pages/checkout/CheckoutDetails";
@@ -25,61 +20,76 @@ import Checkout from "./pages/checkout/Checkout";
 import Checkout2 from "./pages/checkout/Checkout2";
 import CheckoutSuccess from "./pages/checkout/CheckoutSuccess";
 import OrderHistory from "./pages/orderHistory/OrderHistory";
-import OrderDetails from "./pages/orderDetails/OrderDetails";
+import OrderDetails from "./pages/orderDetails/OrderDetails.js";
 import Orders from "./components/admin/orders/Orders.component";
 import NotFound from "./pages/notFound/NotFound";
 import Welcome from "./pages/wecome/Welcome";
 import Menu from "./pages/menu/Menu";
 import Cart2 from "./pages/cart/Cart2";
+import Home from "./components/admin/home/Home.component.jsx";
+import ViewProduct from "./components/admin/viewProduct/ViewProduct.component.jsx";
+import AddProduct from "./components/admin/addProducts/AddProduct.component";
+import AddUser from "./components/admin/addUser/AddUser.component";
+import Users from "./components/admin/users/Users.component";
+import Login from "./pages/auth/Login.component.jsx";
+import Register from "./pages/auth/Register.component.jsx";
+import Reset from "./pages/auth/Reset.component.jsx";
+import Contact from "./pages/contact/Contact.jsx";
 
 function App() {
   return (
-    <>
+    <div className="app">
       <BrowserRouter>
         <ToastContainer />
+        <div className="item-a">
+          <Header />
+        </div>
+        <div className="item-b">
+          <Routes>
+            <Route path="/" element={<Login />}></Route>
+            <Route path="/contact" element={<Contact />}></Route>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/register" element={<Register />}></Route>
+            <Route path="/reset" element={<Reset />}></Route>
+            <Route path="/welcome" element={<Welcome />}></Route>
+            <Route path="/menu" element={<Menu />}></Route>
+            <Route path="/business" element={<Home />}></Route>
+            <Route path="/all-products" element={<ViewProduct />}></Route>
+            <Route path="/add-product/:id" element={<AddProduct />}></Route>
+            <Route path="/add-user/:id" element={<AddUser />}></Route>
+            <Route path="/users" element={<Users />}></Route>
 
-        <Header />
-
-        <Routes>
-          <Route path="/" element={<Login />}></Route>
-          <Route path="/contact" element={<Contact />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/register" element={<Register />}></Route>
-          <Route path="/reset" element={<Reset />}></Route>
-          <Route path="/welcome" element={<Welcome />}></Route>
-          <Route path="/menu" element={<Menu />}></Route>
-
-          <Route
-            path="/admin/*"
-            element={
-              <AdminOnlyRoute>
-                <Admin />
-              </AdminOnlyRoute>
-            }
-          />
-          <Route
-            path="/product-details/:id"
-            element={<ProductDetails />}
-          ></Route>
-          <Route path="/cart" element={<Cart />}></Route>
-          <Route path="/cart2" element={<Cart2 />}></Route>
-          <Route path="/checkout-details" element={<CheckoutDetails />}></Route>
-          <Route
-            path="/checkout-details2"
-            element={<CheckoutDetails2 />}
-          ></Route>
-          <Route path="/checkout" element={<Checkout />}></Route>
-          <Route path="/checkout2" element={<Checkout2 />}></Route>
-          <Route path="/checkout-success" element={<CheckoutSuccess />}></Route>
-          <Route path="/order-history" element={<OrderHistory />}></Route>
-          <Route path="/order-details/:id" element={<OrderDetails />}></Route>
-          <Route path="/orders" element={<Orders />}></Route>
-          <Route path="*" element={<NotFound />}></Route>
-        </Routes>
-
-        <Footer />
+            <Route
+              path="/product-details/:id"
+              element={<ProductDetails />}
+            ></Route>
+            <Route path="/cart" element={<Cart />}></Route>
+            <Route path="/cart2" element={<Cart2 />}></Route>
+            <Route
+              path="/checkout-details"
+              element={<CheckoutDetails />}
+            ></Route>
+            <Route
+              path="/checkout-details2"
+              element={<CheckoutDetails2 />}
+            ></Route>
+            <Route path="/checkout" element={<Checkout />}></Route>
+            <Route path="/checkout2" element={<Checkout2 />}></Route>
+            <Route
+              path="/checkout-success"
+              element={<CheckoutSuccess />}
+            ></Route>
+            <Route path="/order-history" element={<OrderHistory />}></Route>
+            <Route path="/order-details/:id" element={<OrderDetails />}></Route>
+            <Route path="/orders" element={<Orders />}></Route>
+            <Route path="*" element={<NotFound />}></Route>
+          </Routes>
+        </div>
+        <div className="item-c">
+          <Footer />
+        </div>
       </BrowserRouter>
-    </>
+    </div>
   );
 }
 

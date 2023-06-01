@@ -30,7 +30,7 @@ const ViewProduct = () => {
 
   // Pagination states
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage, setProductsPerPage] = useState(10);
+  const [productsPerPage] = useState(10);
 
   // Get Current Products
   const indexOfLastProduct = currentPage * productsPerPage;
@@ -94,9 +94,8 @@ const ViewProduct = () => {
   return (
     <>
       {isLoading && <Loader />}
-      <div className={styles.table}>
-        <h2>Minden termék</h2>
 
+      <div className={styles.table}>
         <div className={styles.search}>
           <p>
             <b>{filteredProducts.length}</b> termék a listában
@@ -135,7 +134,7 @@ const ViewProduct = () => {
                     <td>{category}</td>
                     <td>{`${price} Ft`}</td>
                     <td className={styles.icons}>
-                      <Link to={`/admin/add-product/${id}`}>
+                      <Link to={`/add-product/${id}`}>
                         <FaEdit size={20} color="green" />
                       </Link>
                       &nbsp;

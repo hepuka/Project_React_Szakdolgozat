@@ -1,17 +1,16 @@
 .product {
+  grid-column: 5/12;
+  grid-row: 2/7;
   display: flex;
-  position: relative;
 
   .filter {
     width: 20%;
-    // border: 2px solid var(--dark-blue);
-    transition: all 0.3s;
   }
 
   .content {
     width: 80%;
     padding-left: 5px;
-    position: relative;
+
     .icon {
       display: none;
       justify-content: center;

@@ -1,7 +1,6 @@
 .table {
-  padding: 5px;
-  width: 100%;
-  overflow-x: auto;
+  grid-column: 5/12;
+  grid-row: 2/7;
 
   table {
     border-collapse: collapse;
@@ -34,17 +33,9 @@
       border-bottom: 1px solid #ccc;
       cursor: pointer;
     }
+  }
 
-    tr:nth-child(even) {
-      background-color: #eee;
-    }
-    .pending {
-      color: red;
-      font-weight: 500;
-    }
-    .delivered {
-      color: green;
-      font-weight: 500;
-    }
+  .done {
+    cursor: default;
   }
 }

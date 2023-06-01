@@ -15,68 +15,67 @@ const OrderDetails = () => {
   }, [document]);
 
   return (
-    <section>
-      <div className={`container ${styles.table}`}>
-        <h2>A rendelés részletei</h2>
-        <div>
-          <Link to="/order-history">&larr; Back To Orders</Link>
-        </div>
-        <br />
-        {order === null ? (
-          <img src={spinnerImg} alt="Loading..." style={{ width: "50px" }} />
-        ) : (
-          <>
-            <p>
-              <b>Megrendelés azonosító: </b> {order.id}
-            </p>
-            <p>
-              <b>Rendelés összege: </b> {`${order.orderAmount} Ft`}
-            </p>
-            <p>
-              <b>Rendelés állapota:</b> {order.orderStatus}
-            </p>
-            <br />
-            <table>
-              <thead>
-                <tr>
-                  <th>Sorszám</th>
-                  <th>Termék neve</th>
-                  <th>Egységár</th>
-                  <th>Mennyiség</th>
-                  <th>Végösszeg</th>
-                </tr>
-              </thead>
-              <tbody>
-                {order.cartItems.map((cart, index) => {
-                  const { id, name, price, imageURL, cartQuantity } = cart;
-                  return (
-                    <tr key={id}>
-                      <td>
-                        <b>{index + 1}</b>
-                      </td>
-                      <td>
-                        <p>
-                          <b>{name}</b>
-                        </p>
-                        <img
-                          src={imageURL}
-                          alt={name}
-                          style={{ width: "100px" }}
-                        />
-                      </td>
-                      <td>{price}</td>
-                      <td>{cartQuantity}</td>
-                      <td>{(price * cartQuantity).toFixed(2)}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </>
-        )}
-        <ChangeOrderStatus order={order} id={id} />
+    <div className={`container ${styles.table}`}>
+      <div>
+        <Link to="/orders">&larr; Back To Orders</Link>
       </div>
-    </section>
+      <br />
+      {order === null ? (
+        <img src={spinnerImg} alt="Loading..." style={{ width: "50px" }} />
+      ) : (
+        <>
+          <p>
+            <b>Megrendelés azonosító: </b> {order.id}
+          </p>
+          <p>
+            <b>Rendelés összege: </b> {`${order.orderAmount} Ft`}
+          </p>
+          <p>
+            <b>Rendelés állapota:</b> {order.orderStatus}
+          </p>
+          <br />
+          <table>
+            <thead>
+              <tr>
+                <th>Sorszám</th>
+                <th>Termék neve</th>
+                <th>Egységár</th>
+                <th>Mennyiség</th>
+                <th>Végösszeg</th>
+              </tr>
+            </thead>
+            <tbody>
+              {order.cartItems.map((cart, index) => {
+                const { id, name, price, imageURL, cartQuantity } = cart;
+                return (
+                  <tr key={id}>
+                    <td>
+                      <b>{index + 1}</b>
+                    </td>
+                    <td>
+                      <p>
+                        <b>{name}</b>
+                      </p>
+                      <img
+                        src={imageURL}
+                        alt={name}
+                        style={{ width: "100px" }}
+                      />
+                    </td>
+                    <td>{price}</td>
+                    <td>{cartQuantity}</td>
+                    <td>{(price * cartQuantity).toFixed(2)}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+          {order.orderStatus !== "Fizetve" ? (
+            <ChangeOrderStatus order={order} id={id} />
+          ) : null}
+        </>
+      )}
+    </div>
   );
 };
 

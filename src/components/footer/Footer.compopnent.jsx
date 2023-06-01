@@ -8,7 +8,9 @@ const Footer = () => {
   return (
     <ShowOnLogin>
       <div className={styles.footer}>
-        &copy;{year}, Created by Zoltan KUN-FAGYAL - All Rights Reserved
+        <h2>
+          &copy;{year}, Created by Zoltan KUN-FAGYAL - All Rights Reserved
+        </h2>
       </div>
     </ShowOnLogin>
   );

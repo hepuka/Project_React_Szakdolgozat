@@ -1,13 +1,12 @@
 import styles from "./AddUser.module.scss";
 import React, { useState } from "react";
-import Card from "../../card/Card.component";
 import Loader from "../../loader/Loader.component";
-import { db, storage } from "../../../firebase/config";
-import { toast } from "react-toastify";
+import { db } from "../../../firebase/config";
 import { addDoc, collection, doc, setDoc, Timestamp } from "firebase/firestore";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectUsers } from "../../../redux/slice/userSlice";
+import Notiflix from "notiflix";
 
 const categories = [
   { id: 1, name: "Admin" },
@@ -66,11 +65,11 @@ const AddUser = () => {
       setIsLoading(false);
       setUser({ ...initialSate });
 
-      toast.success("Sikeres felhasználó rögzítés!");
-      navigate("/admin/users");
+      Notiflix.Notify.success("Sikeres felhasználó rögzítés!");
+      navigate("/users");
     } catch (error) {
       setIsLoading(false);
-      toast.error(error.message);
+      Notiflix.Notify.failure(error.message);
     }
   };
 
@@ -90,11 +89,12 @@ const AddUser = () => {
       });
 
       setIsLoading(false);
-      toast.success("Felhasználó adatai módosítva!");
-      navigate("/admin/users");
+      Notiflix.Notify.success("Felhasználó adatai módosítva!");
+
+      navigate("/users");
     } catch (error) {
       setIsLoading(false);
-      toast.error(error.message);
+      Notiflix.Notify.failure(error.message);
     }
   };
 
@@ -168,7 +168,7 @@ const AddUser = () => {
             })}
           </select>
 
-          <button className="--btn --btn-primary">
+          <button className="--btn --btn-primary --btn-block">
             {detectForm(id, "Hozzáad", "Módosít")}
           </button>
         </form>

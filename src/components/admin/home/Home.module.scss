@@ -1,22 +1,24 @@
-.info-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-
-.card {
-  border: 1px solid #ccc;
-  padding: 10px;
-  background-color: #f5f6fa;
-  text-align: center;
-  width: 250px;
-  height: 100px;
-}
-
 .home {
+  grid-column: 7/10;
+  grid-row: 2/7;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+
+  .info-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    .card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      background-color: #f5f6fa;
+      text-align: center;
+      width: 250px;
+      height: 100px;
+    }
+  }
 }

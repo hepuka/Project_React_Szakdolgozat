@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styles from "./AddProduct.module.scss";
-import Card from "../../card/Card.component";
 import Loader from "../../loader/Loader.component";
 import {
   deleteObject,
@@ -103,7 +102,7 @@ const AddProduct = () => {
       setProduct({ ...initialSate });
 
       toast.success("Sikeres termék feltöltés!");
-      navigate("/admin/all-products");
+      navigate("/all-products");
     } catch (error) {
       setIsLoading(false);
       toast.error(error.message);
@@ -245,7 +244,7 @@ const AddProduct = () => {
             rows="10"
           ></textarea>
 
-          <button className="--btn --btn-primary">
+          <button className="--btn --btn-primary --btn-block">
             {detectForm(id, "Hozzáad", "Módosít")}
           </button>
         </form>

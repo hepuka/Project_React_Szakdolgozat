@@ -37,36 +37,34 @@ const Product = () => {
   };
 
   return (
-    <section>
-      <div className={`container ${styles.product}`}>
-        <aside
-          className={
-            showFilter ? `${styles.filter} ${styles.show}` : `${styles.filter}`
-          }
-        >
-          {isLoading ? null : <ProductFilter />}
-        </aside>
+    <div className={styles.product}>
+      <aside
+        className={
+          showFilter ? `${styles.filter} ${styles.show}` : `${styles.filter}`
+        }
+      >
+        {isLoading ? null : <ProductFilter />}
+      </aside>
 
-        <div className={styles.content}>
-          {isLoading ? (
-            <img
-              src={spinner}
-              alt="spinner"
-              style={{ width: "50px" }}
-              className="--center-all"
-            />
-          ) : (
-            <ProductList products={products} />
-          )}
-          <div className={styles.icon} onClick={toggleFilter}>
-            <FaCogs size={20} color="red" />
-            <p>
-              <b>{showFilter ? "Hide Filter" : "Show Filter"}</b>
-            </p>
-          </div>
+      <div className={styles.content}>
+        {isLoading ? (
+          <img
+            src={spinner}
+            alt="spinner"
+            style={{ width: "50px" }}
+            className="--center-all"
+          />
+        ) : (
+          <ProductList products={products} />
+        )}
+        <div className={styles.icon} onClick={toggleFilter}>
+          <FaCogs size={20} color="red" />
+          <p>
+            <b>{showFilter ? "Hide Filter" : "Show Filter"}</b>
+          </p>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

@@ -15,8 +15,7 @@ registerUser függvény
 */
 
 import React, { useState } from "react";
-import styles from "./auth.module.scss";
-
+import styles from "./Register.module.scss";
 //Firebase Import
 
 import { createUserWithEmailAndPassword } from "firebase/auth";
@@ -62,38 +61,37 @@ const Register = () => {
   return (
     <>
       {isLoading && <Loader />}
-      <section className={`container ${styles.auth}`}>
-        <div className={styles.form}>
-          <h2>Új felhasználó regisztrálása</h2>
-          <form onSubmit={registerUser}>
-            <input
-              type="text"
-              placeholder="Email"
-              required
-              value={emailInput}
-              onChange={(e) => setEmailInput(e.target.value)}
-            />
-            <input
-              type="password"
-              placeholder="Jelszó"
-              required
-              value={passwordInput}
-              onChange={(e) => setPasswordInput(e.target.value)}
-            />
-            <input
-              type="password"
-              placeholder="Adja meg újra jelszavát"
-              required
-              value={passwordConfirm}
-              onChange={(e) => setPasswordConfirm(e.target.value)}
-            />
 
-            <button type="submit" className="--btn --btn-primary --btn-block">
-              Regisztráció
-            </button>
-          </form>
-        </div>
-      </section>
+      <div className={styles.form}>
+        <h2>Új felhasználó regisztrálása</h2>
+        <form onSubmit={registerUser}>
+          <input
+            type="text"
+            placeholder="Email"
+            required
+            value={emailInput}
+            onChange={(e) => setEmailInput(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Jelszó"
+            required
+            value={passwordInput}
+            onChange={(e) => setPasswordInput(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Adja meg újra jelszavát"
+            required
+            value={passwordConfirm}
+            onChange={(e) => setPasswordConfirm(e.target.value)}
+          />
+
+          <button type="submit" className="--btn --btn-primary --btn-block">
+            Regisztráció
+          </button>
+        </form>
+      </div>
     </>
   );
 };

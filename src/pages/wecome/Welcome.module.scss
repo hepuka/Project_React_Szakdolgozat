@@ -1,0 +1,19 @@
+.centered {
+  grid-column: 5/12;
+  grid-row: 1/8;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 50px;
+
+  h1 {
+    font-weight: bold;
+    font-size: 70px;
+  }
+
+  h2 {
+    font-size: 50px;
+  }
+}

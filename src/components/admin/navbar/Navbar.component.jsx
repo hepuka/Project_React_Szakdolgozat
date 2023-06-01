@@ -13,11 +13,6 @@ const Navbar = () => {
       <nav>
         <ul>
           <li>
-            <NavLink to="/admin/home" className={activeLink}>
-              Üzleti összesítő
-            </NavLink>
-          </li>
-          <li>
             <NavLink to="/admin/all-products" className={activeLink}>
               Minden termék
             </NavLink>
