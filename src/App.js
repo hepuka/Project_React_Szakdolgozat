@@ -7,9 +7,7 @@
 */
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
+import ShowOnLogin from "./components/hiddenLink/hiddenLink";
 import Header from "./components/header/Header.component.jsx";
 import Footer from "./components/footer/Footer.compopnent.jsx";
 import ProductDetails from "./components/admin/product/productDetails/ProductDetails.component";
@@ -39,10 +37,10 @@ function App() {
   return (
     <div className="app">
       <BrowserRouter>
-        <ToastContainer />
         <div className="item-a">
           <Header />
         </div>
+
         <div className="item-b">
           <Routes>
             <Route path="/" element={<Login />}></Route>
@@ -83,9 +81,11 @@ function App() {
             <Route path="*" element={<NotFound />}></Route>
           </Routes>
         </div>
-        <div className="item-c">
-          <Footer />
-        </div>
+        <ShowOnLogin>
+          <div className="item-c">
+            <Footer />
+          </div>
+        </ShowOnLogin>
       </BrowserRouter>
     </div>
   );

@@ -1,5 +1,5 @@
 /* 
-    showOnLogin és a ShowOnLogout és a ShowBasic, ShowAdmin feüggvényekbe kell nerakni azokat amik látszódhatnak
+    showOnLogin és a ShowOnLogout és a ShowBasic, ShowAdmin függvényekbe kell nerakni azokat amik látszódhatnak
 */
 
 import { useSelector } from "react-redux";
@@ -9,15 +9,6 @@ const ShowOnLogin = ({ children }) => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
   if (isLoggedIn) {
-    return children;
-  }
-  return null;
-};
-
-export const ShowOnLogout = ({ children }) => {
-  const isLoggedIn = useSelector(selectIsLoggedIn);
-
-  if (!isLoggedIn) {
     return children;
   }
   return null;
