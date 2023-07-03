@@ -3,23 +3,23 @@
   grid-row: 1/7;
 }
 
+h2 {
+  color: #6f4e37;
+}
 form {
   label {
     font-size: 1.3rem;
+    color: #6f4e37;
   }
-  input[type="text"],
-  input[type="number"],
-  input[type="file"],
-  input[type="email"],
-  select,
-  textarea,
-  input[type="password"] {
+
+  input,
+  textarea {
     font-size: 1.5rem;
     padding: 1rem;
     margin: 1rem auto;
-    border: 1px solid #777;
+    border: 1px solid #6f4e37;
     border-radius: 4px;
-    width: 60%;
+    color: #6f4e37;
   }
 
   textarea {

@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 import styles from "./auth.module.scss";
 
-//Firebase
 import { Link } from "react-router-dom";
 import { auth } from "../../firebase/config";
 import { sendPasswordResetEmail } from "firebase/auth";
-import { toast } from "react-toastify";
 
-//compomemts
-
+import Notiflix from "notiflix";
 import Loader from "../../components/loader/Loader.component";
 
 const Reset = () => {
@@ -22,40 +19,40 @@ const Reset = () => {
     sendPasswordResetEmail(auth, emailInput)
       .then(() => {
         setIsLoading(false);
-        toast.success("Ellenőrizd email fiókodat a további teendőkért!");
+        Notiflix.Notify.success(
+          "Ellenőrizd email fiókodat a további teendőkért!"
+        );
       })
       .catch((error) => {
         setIsLoading(false);
-        toast.error(error.message);
+        Notiflix.Notify.failure(error.message);
       });
   };
 
   return (
     <>
       {isLoading && <Loader />}
-      <section className={`container ${styles.auth}`}>
-        <div className={styles.form}>
-          <h2>Elfelejtett jelszó</h2>
-
-          <form onSubmit={resetPassword}>
-            <input
-              type="text"
-              placeholder="Email"
-              required
-              value={emailInput}
-              onChange={(e) => setEmailInput(e.target.value)}
-            />
-            <button type="submit" className="--btn --btn-primary --btn-block">
-              Elküld
-            </button>
-            <div className={styles.links}>
-              <p>
-                <Link to="/login">- Vissza -</Link>
-              </p>
-            </div>
-          </form>
-        </div>
-      </section>
+      <div className={styles.form}>
+        <h2>Elfelejtett jelszó</h2>
+        <form onSubmit={resetPassword}>
+          <input
+            type="text"
+            placeholder="Email"
+            required
+            value={emailInput}
+            onChange={(e) => setEmailInput(e.target.value)}
+            autoComplete="off"
+          />
+          <button type="submit" className="--btn --btn-primary --btn-block">
+            Elküld
+          </button>
+          <div className={styles.links}>
+            <p>
+              <Link to="/login">- Vissza -</Link>
+            </p>
+          </div>
+        </form>
+      </div>
     </>
   );
 };

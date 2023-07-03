@@ -86,7 +86,7 @@ const Contact = () => {
           rows="10"
           placeholder="Küldje el nekünk észrevételét"
         ></textarea>
-        <button className="--btn --btn-primary">Küldés</button>
+        <button className="--btn --btn-primary --btn-block">Küldés</button>
       </form>
     </div>
   );

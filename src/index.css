@@ -53,21 +53,21 @@ body {
 
 .item-a {
   grid-area: header;
-  background-color: #6f4e37;
+  /* background-color: #6f4e37; */
 }
 .item-b {
   grid-area: main;
   display: grid;
   grid-template-columns: repeat(15, 1fr);
   grid-template-rows: repeat(7, 1fr);
-  background-color: #dcb499;
+  /* background-color: #dcb499; */
 }
 .item-c {
   grid-area: footer;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #6f4e37;
+  /* background-color: #6f4e37; */
 }
 
 /* UTILITY CLASSES */

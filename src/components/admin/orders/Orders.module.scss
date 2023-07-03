@@ -2,18 +2,20 @@
   grid-column: 5/12;
   grid-row: 2/7;
 
+  span {
+    color: #6f4e37;
+    font-size: 1.4rem;
+  }
+
   table {
     border-collapse: collapse;
     width: 100%;
     font-size: 1.4rem;
+    margin-top: 10px;
 
     thead {
-      border-top: 2px solid var(--color-dark);
-      border-bottom: 2px solid var(--color-dark);
-    }
-
-    th {
-      border: 1px solid #eee;
+      border-top: 2px solid #6f4e37;
+      border-bottom: 2px solid #6f4e37;
     }
 
     th,
@@ -21,6 +23,7 @@
       vertical-align: top;
       text-align: left;
       padding: 8px;
+      color: #6f4e37;
       &.icons {
         > * {
           margin-right: 5px;
@@ -30,8 +33,9 @@
     }
 
     tr {
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid #caaa94;
       cursor: pointer;
+      color: #6f4e37;
     }
   }
 

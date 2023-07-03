@@ -8,6 +8,10 @@
     align-items: center;
     width: 100%;
   }
+  span {
+    color: #6f4e37;
+    font-weight: bold;
+  }
 
   table {
     border-collapse: collapse;
@@ -15,12 +19,8 @@
     font-size: 1.4rem;
 
     thead {
-      border-top: 2px solid var(--color-dark);
-      border-bottom: 2px solid var(--color-dark);
-    }
-
-    th {
-      border: 1px solid #eee;
+      border-top: 2px solid #6f4e37;
+      border-bottom: 2px solid #6f4e37;
     }
 
     th,
@@ -28,6 +28,7 @@
       vertical-align: top;
       text-align: left;
       padding: 8px;
+      color: #6f4e37;
       &.icons {
         > * {
           margin-right: 5px;
@@ -35,13 +36,13 @@
         }
       }
     }
-
-    tr {
-      border-bottom: 1px solid #ccc;
+    img {
+      width: 100%;
+      border-radius: 3px;
+      border: 1px solid #caaa94;
     }
-
-    tr:nth-child(even) {
-      background-color: #eee;
+    tr {
+      border-bottom: 1px solid #caaa94;
     }
   }
 }

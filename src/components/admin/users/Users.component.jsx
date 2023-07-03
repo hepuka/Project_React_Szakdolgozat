@@ -6,7 +6,6 @@ import styles from "../viewProduct/ViewProduct.module.scss";
 import { selectUsers } from "../../../redux/slice/userSlice";
 import { Link } from "react-router-dom";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
-import { toast } from "react-toastify";
 import { STORE_USERS } from "../../../redux/slice/userSlice";
 import { db } from "../../../firebase/config";
 import { deleteDoc, doc } from "firebase/firestore";
@@ -54,9 +53,9 @@ const Users = () => {
     try {
       await deleteDoc(doc(db, "users", id));
 
-      toast.success("Sikeres felhasználótörlés!");
+      Notiflix.Notify.success("Sikeres felhasználótörlés!");
     } catch (error) {
-      toast.error(error.message);
+      Notiflix.Notify.failure(error.message);
     }
   };
 

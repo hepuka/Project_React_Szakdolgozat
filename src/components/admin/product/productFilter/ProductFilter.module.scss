@@ -1,6 +1,7 @@
 .filter {
   h4 {
     margin-top: 1rem;
+    color: #6f4e37;
   }
   .category button {
     display: block;
@@ -12,7 +13,8 @@
     background-color: transparent;
     cursor: pointer;
     // margin-bottom: 5px;
-    border-bottom: 1px solid #777;
+    border-bottom: 1px solid #6f4e37;
+    color: #6f4e37;
   }
 
   .brand {
@@ -22,7 +24,7 @@
       padding: 5px;
 
       width: 80%;
-      border: 1px solid #777;
+      border: 1px solid #6f4e37;
       border-radius: 3px;
       outline: none;
     }

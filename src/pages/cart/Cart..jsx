@@ -141,10 +141,7 @@ const Cart = () => {
                 <h3>{`${cartTotalAmount.toFixed(2)} Ft`}</h3>
               </div>
               <p>Az összeg 25% ÁFA-t tartalmaz</p>
-              <button
-                className="--btn --btn-primary --btn-block"
-                onClick={checkout}
-              >
+              <button className="--btn --btn-primary" onClick={checkout}>
                 Fizetés leadása
               </button>
             </div>

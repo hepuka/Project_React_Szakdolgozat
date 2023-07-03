@@ -1,11 +1,15 @@
 .form {
-  grid-column: 7/11;
+  grid-column: 6/11;
   grid-row: 2/7;
 
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  h2 {
+    color: #6f4e37;
+  }
 
   form {
     display: flex;
@@ -19,14 +23,14 @@
       font-size: 1.5rem;
       padding: 1rem;
       margin: 1rem auto;
-      border: 1px solid #777;
+      border: 1px solid #6f4e37;
       border-radius: 4px;
       width: 60%;
       background: transparent;
     }
 
     button {
-      width: 60%;
+      width: 50%;
     }
   }
 }

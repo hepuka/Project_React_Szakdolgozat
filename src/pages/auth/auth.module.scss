@@ -52,13 +52,16 @@
 // }
 
 .form {
-  grid-column: 7/10;
+  grid-column: 6/10;
   grid-row: 3/5;
-
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  h2 {
+    color: #6f4e37;
+  }
 
   form {
     display: flex;
@@ -67,20 +70,19 @@
     flex-direction: column;
     gap: 20px;
     width: 100%;
-    input[type="text"],
-    input[type="email"],
-    select,
-    input[type="password"] {
+    input {
       font-size: 1.5rem;
       padding: 1rem;
       margin: 1rem auto;
-      border: 1px solid #777;
+      border: 1px solid #6f4e37;
       border-radius: 4px;
       width: 100%;
     }
 
-    .links {
+    button {
+      width: 50%;
     }
+
     a {
       color: #6f4e37;
       font-weight: bold;

@@ -29,10 +29,9 @@ const Orders = () => {
       {isLoading && <Loader />}
 
       <div className={styles.table}>
-        <p>
+        <span>
           Válassz egy rendelést a részleteinek <b>megtekintésére</b>
-        </p>
-        <br />
+        </span>
 
         {orders.length === 0 ? (
           <p>No order found</p>

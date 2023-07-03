@@ -42,9 +42,9 @@ const ProductList = ({ products }) => {
     <div className={styles["product-list"]} id="kunpaosproducts">
       <div className={styles.top}>
         <div className={styles.icons}>
-          <p>
+          <span>
             <b>{filteredProducts.length}</b> termék a kínálatban
-          </p>
+          </span>
         </div>
         {/* Search icon */}
         <div>

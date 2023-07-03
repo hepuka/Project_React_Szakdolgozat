@@ -4,11 +4,9 @@ import { Link } from "react-router-dom";
 import Notiflix from "notiflix";
 import { useNavigate } from "react-router-dom";
 
-//Firebase
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/config";
 
-//compomemts
 import Loader from "../../components/loader/Loader.component";
 import { useSelector } from "react-redux";
 import { selectPreviousURL } from "../../redux/slice/cartSlice";
@@ -51,9 +49,8 @@ const Login = () => {
   return (
     <>
       {isLoading && <Loader />}
-
       <div className={styles.form}>
-        <h2>KunPao's Coffee POS Register</h2>
+        <h2>KunPao's Coffee Management</h2>
         <form onSubmit={loginUser}>
           <input
             type="text"
@@ -61,6 +58,7 @@ const Login = () => {
             required
             value={emailInput}
             onChange={(e) => setEmailInput(e.target.value)}
+            autoComplete="off"
           />
           <input
             type="password"
@@ -68,8 +66,9 @@ const Login = () => {
             required
             value={passwordInput}
             onChange={(e) => setPasswordInput(e.target.value)}
+            autoComplete="off"
           />
-          <button type="submit" className="--btn --btn-primary --btn-block">
+          <button type="submit" className="--btn --btn-primary">
             Tovább
           </button>
 

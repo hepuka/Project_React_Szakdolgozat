@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { toast } from "react-toastify";
+import Notiflix from "notiflix";
 
 const initialState = {
   cartItems: localStorage.getItem("cartItems")
@@ -30,17 +30,13 @@ const cartSlice = createSlice({
         // Item already exists in the cart
         // Increase the cartQuantity
         state.cartItems[productIndex].cartQuantity += 1;
-        toast.info(`${action.payload.name} hozzáaadva`, {
-          position: "top-left",
-        });
+        Notiflix.Notify.success(`${action.payload.name} hozzáaadva`);
       } else {
         // Item doesn't exists in the cart
         // Add item to the cart
         const tempProduct = { ...action.payload, cartQuantity: 1 };
         state.cartItems.push(tempProduct);
-        toast.success(`${action.payload.name} rendeléshez adva`, {
-          position: "top-left",
-        });
+        Notiflix.Notify.success(`${action.payload.name} a rendeléshez adva`);
       }
       // save cart to Localstorage
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
@@ -56,17 +52,13 @@ const cartSlice = createSlice({
         // Item already exists in the cart
         // Increase the cartQuantity
         state.cartItems2[productIndex].cartQuantity += 1;
-        toast.info(`${action.payload.name} hozzáaadva`, {
-          position: "center",
-        });
+        Notiflix.Notify.success(`${action.payload.name} hozzáaadva`);
       } else {
         // Item doesn't exists in the cart
         // Add item to the cart
         const tempProduct = { ...action.payload, cartQuantity: 1 };
         state.cartItems2.push(tempProduct);
-        toast.success(`${action.payload.name} rendeléshez adva`, {
-          position: "center",
-        });
+        Notiflix.Notify.success(`${action.payload.name} a rendeléshez adva`);
       }
       // save cart to Localstorage
       localStorage.setItem("cartItems2", JSON.stringify(state.cartItems2));
@@ -80,17 +72,15 @@ const cartSlice = createSlice({
 
       if (state.cartItems[productIndex].cartQuantity > 1) {
         state.cartItems[productIndex].cartQuantity -= 1;
-        toast.info(`${action.payload.name} mennyisége csökkentve`, {
-          position: "top-left",
-        });
+        Notiflix.Notify.success(`${action.payload.name} mennyisége csökkentve`);
       } else if (state.cartItems[productIndex].cartQuantity === 1) {
         const newCartItem = state.cartItems.filter(
           (item) => item.id !== action.payload.id
         );
         state.cartItems = newCartItem;
-        toast.success(`${action.payload.name} eltávolítva a rendelésből`, {
-          position: "top-left",
-        });
+        Notiflix.Notify.success(
+          `${action.payload.name} eltávolítva a rendelésből`
+        );
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
@@ -102,17 +92,15 @@ const cartSlice = createSlice({
 
       if (state.cartItems2[productIndex].cartQuantity > 1) {
         state.cartItems2[productIndex].cartQuantity -= 1;
-        toast.info(`${action.payload.name} mennyisége csökkentve`, {
-          position: "top-left",
-        });
+        Notiflix.Notify.success(`${action.payload.name} mennyisége csökkentve`);
       } else if (state.cartItems2[productIndex].cartQuantity === 1) {
         const newCartItem = state.cartItems2.filter(
           (item) => item.id !== action.payload.id
         );
         state.cartItems2 = newCartItem;
-        toast.success(`${action.payload.name} eltávolítva a rendelésből`, {
-          position: "top-left",
-        });
+        Notiflix.Notify.success(
+          `${action.payload.name} eltávolítva a rendelésből`
+        );
       }
       localStorage.setItem("cartItems2", JSON.stringify(state.cartItems2));
     },
@@ -123,9 +111,7 @@ const cartSlice = createSlice({
       );
 
       state.cartItems = newCartItem;
-      toast.success(`${action.payload.name} rendelés törölve`, {
-        position: "top-left",
-      });
+      Notiflix.Notify.success(`${action.payload.name} a rendelésből törölve`);
 
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
@@ -136,28 +122,20 @@ const cartSlice = createSlice({
       );
 
       state.cartItems2 = newCartItem;
-      toast.success(`${action.payload.name} rendelés törölve`, {
-        position: "top-left",
-      });
+      Notiflix.Notify.success(`${action.payload.name} a rendelésből törölve`);
 
       localStorage.setItem("cartItems2", JSON.stringify(state.cartItems2));
     },
 
     CLEAR_CART(state, action) {
       state.cartItems = [];
-      toast.info(`Rendelés lista kiürítve`, {
-        position: "top-left",
-      });
-
+      Notiflix.Notify.success(`Rendelés lista kiürítve`);
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
 
     CLEAR_CART2(state, action) {
       state.cartItems2 = [];
-      toast.info(`Rendelés lista kiürítve`, {
-        position: "top-left",
-      });
-
+      Notiflix.Notify.success(`Rendelés lista kiürítve`);
       localStorage.setItem("cartItems2", JSON.stringify(state.cartItems2));
     },
 

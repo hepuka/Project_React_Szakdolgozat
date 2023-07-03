@@ -24,16 +24,18 @@ const OrderDetails = () => {
         <img src={spinnerImg} alt="Loading..." style={{ width: "50px" }} />
       ) : (
         <>
-          <p>
+          <span>
             <b>Megrendelés azonosító: </b> {order.id}
-          </p>
-          <p>
-            <b>Rendelés összege: </b> {`${order.orderAmount} Ft`}
-          </p>
-          <p>
-            <b>Rendelés állapota:</b> {order.orderStatus}
-          </p>
+          </span>
           <br />
+          <span>
+            <b>Rendelés összege: </b> {`${order.orderAmount} Ft`}
+          </span>
+          <br />
+          <span>
+            <b>Rendelés állapota:</b> {order.orderStatus}
+          </span>
+
           <table>
             <thead>
               <tr>

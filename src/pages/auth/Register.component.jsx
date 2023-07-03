@@ -16,13 +16,10 @@ registerUser függvény
 
 import React, { useState } from "react";
 import styles from "./Register.module.scss";
-//Firebase Import
 
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/config";
-import { toast } from "react-toastify";
-
-//compomemts
+import Notiflix from "notiflix";
 
 import { useNavigate } from "react-router-dom";
 import Loader from "../../components/loader/Loader.component";
@@ -39,21 +36,19 @@ const Register = () => {
     e.preventDefault();
 
     if (passwordInput !== passwordConfirm) {
-      toast.error("Hibás bejelentkezési adat!");
+      Notiflix.Notify.failure("Hibás bejelentkezési adat!");
     }
     setIsLoading(true);
 
     createUserWithEmailAndPassword(auth, emailInput, passwordInput)
       .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user);
-
+        // const user = userCredential.user;
         setIsLoading(false);
-        toast.success("Sikeres regisztráció!");
+        Notiflix.Notify.success("Sikeres regisztráció!");
         navigate("/login");
       })
       .catch((error) => {
-        toast.error(error.message);
+        Notiflix.Notify.failure(error.message);
         setIsLoading(false);
       });
   };

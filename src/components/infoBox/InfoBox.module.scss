@@ -2,16 +2,10 @@
   width: 100%;
   max-width: 25rem;
 
-  .card {
-    border: 1px solid #ccc;
-    border-bottom: 3px solid var(--light-blue);
-    padding: 5px;
-    background-color: transparent;
-  }
-
   span {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: #6f4e37;
   }
 }

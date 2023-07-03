@@ -71,29 +71,20 @@
 // }
 
 .contact {
-  grid-column: 6/12;
+  grid-column: 4/13;
   grid-row: 2/7;
-
   display: flex;
-  justify-content: center;
   align-items: flex-start;
-  gap: 110px;
+  gap: 300px;
 
   form {
-    input[type="text"],
-    input[type="email"],
-    select,
-    input[type="password"] {
+    input,
+    select {
       font-size: 1.5rem;
       padding: 1rem;
       margin: 1rem auto;
-      border: 1px solid #777;
+      border: 1px solid #6f4e37;
       border-radius: 4px;
-      width: 100%;
-    }
-
-    button {
-      width: 100%;
     }
   }
 

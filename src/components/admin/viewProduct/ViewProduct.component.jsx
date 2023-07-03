@@ -98,7 +98,7 @@ const ViewProduct = () => {
       <div className={styles.table}>
         <div className={styles.search}>
           <p>
-            <b>{filteredProducts.length}</b> termék a listában
+            <span>{filteredProducts.length}</span> termék a listában
           </p>
           <Search value={search} onChange={(e) => setSearch(e.target.value)} />
         </div>
