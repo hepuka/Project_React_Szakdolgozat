@@ -71,6 +71,7 @@ const Register = () => {
             required
             value={emailInput}
             onChange={(e) => setEmailInput(e.target.value)}
+            autoComplete="off"
           />
           <input
             type="password"
@@ -78,6 +79,7 @@ const Register = () => {
             required
             value={passwordInput}
             onChange={(e) => setPasswordInput(e.target.value)}
+            autoComplete="off"
           />
           <input
             type="password"
