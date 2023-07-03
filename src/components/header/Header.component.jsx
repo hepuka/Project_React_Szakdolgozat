@@ -23,17 +23,7 @@ import {
 } from "../../redux/slice/authSlice";
 import ShowOnLogin from "../hiddenLink/hiddenLink";
 import { AdminOnlyLink, UserOnlyLink } from "../adminOnlyRoute/AdminOnlyRoute";
-
 import Notiflix from "notiflix";
-
-// import {
-//   CALCULATE_TOTAL_QUANTITY,
-//   selectCartTotalQuantity,
-//   selectCartTotalQuantity2,
-//   CALCULATE_TOTAL_QUANTITY2,
-// } from "../../redux/slice/cartSlice";
-
-//Firebase
 import { auth } from "../../firebase/config";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { toast } from "react-toastify";
