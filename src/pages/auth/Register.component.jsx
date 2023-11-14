@@ -45,7 +45,7 @@ const Register = () => {
         // const user = userCredential.user;
         setIsLoading(false);
         Notiflix.Notify.success("Sikeres regisztráció!");
-        navigate("/login");
+        navigate("/add-user/ADD");
       })
       .catch((error) => {
         Notiflix.Notify.failure(error.message);

@@ -56,8 +56,8 @@ const AddUser = () => {
       addDoc(collection(db, "users"), {
         name: user.name,
         email: user.email,
-        tax: user.tax,
-        pin: user.pin,
+        tax: user.tax.length  === 8 ? user.tax : Notiflix.Notify.failure("Add meg a 8 számjegyű adószámot kódot!"),
+        pin: user.pin.length === 4 ? user.pin : Notiflix.Notify.failure("Add meg a 4 számjegyű pin kódot!"),
         role: user.role,
         createdAt: Timestamp.now().toDate(),
       });
@@ -69,7 +69,7 @@ const AddUser = () => {
       navigate("/users");
     } catch (error) {
       setIsLoading(false);
-      Notiflix.Notify.failure(error.message);
+      // Notiflix.Notify.failure(error.message);
     }
   };
 
@@ -105,7 +105,7 @@ const AddUser = () => {
         <h2>
           {detectForm(
             id,
-            "Új felhasználó hozzáadása",
+            "Új felhasználó adatainak megadása",
             "Felhasználó adatainak módosítása"
           )}
         </h2>

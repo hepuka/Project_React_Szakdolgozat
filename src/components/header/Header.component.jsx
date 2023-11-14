@@ -16,10 +16,11 @@ import { FaTimes } from "react-icons/fa";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   REMOVE_ACTIVE_USER,
   SET_ACTIVE_USER,
+  selectUserName,
 } from "../../redux/slice/authSlice";
 import ShowOnLogin from "../hiddenLink/hiddenLink";
 import { AdminOnlyLink, UserOnlyLink } from "../adminOnlyRoute/AdminOnlyRoute";
@@ -40,13 +41,14 @@ const activeLink = ({ isActive }) => (isActive ? `${styles.active}` : "");
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const [displayName, setDisplayName] = useState("");
+  // const [displayName, setDisplayName] = useState("");
   // const cartTotalQuantity = useSelector(selectCartTotalQuantity);
   // const cartTotalQuantity2 = useSelector(selectCartTotalQuantity2);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const userN = useSelector(selectUserName);
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
@@ -81,28 +83,22 @@ const Header = () => {
       if (user) {
         console.log(user);
 
-        if (user.displayName === null) {
-          const u1 = user.email.substring(0, user.email.indexOf("@"));
-          const uName = u1.charAt(0).toUpperCase() + u1.slice(1);
-          setDisplayName(uName);
-        } else {
-          setDisplayName(user.displayName);
-        }
+        // setDisplayName(user.displayName);
 
         dispatch(
           SET_ACTIVE_USER({
             email: user.email,
-            userName: user.displayName ? user.displayName : displayName,
+            userName: user.displayName ? user.displayName : "",
             userID: user.uid,
           })
         );
       } else {
-        setDisplayName("");
+        // setDisplayName("");
 
         dispatch(REMOVE_ACTIVE_USER());
       }
     });
-  }, [dispatch, displayName]);
+  }, [dispatch]);
 
   return (
     <ShowOnLogin>
@@ -201,13 +197,12 @@ const Header = () => {
                 Kijelentkezés
               </NavLink>
             </li>
-            <li>Bejelentkezve: {displayName}</li>
+            <li>Bejelentkezve: {userN}</li>
           </ul>
         </nav>
 
         {/* responsive menü */}
         <div className={styles["menu-icon"]}>
-          {/* <Cart /> */}
           <HiOutlineMenuAlt3 size={28} onClick={toggleMenu} />
         </div>
       </header>
